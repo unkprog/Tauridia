@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tauridia.Web.Server", "Tauridia.Web.Server\Tauridia.Web.Server.csproj", "{9A402F59-9E77-4409-8893-C5E604342CA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tauridia.Web.Server", "Tauridia.Web.Server\Tauridia.Web.Server.csproj", "{9A402F59-9E77-4409-8893-C5E604342CA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tauridia.Web.Core", "Tauridia.Web.Core\Tauridia.Web.Core.csproj", "{595BD527-0CE4-4F3B-A524-795B4D1CD036}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tauridia.Web.Core", "Tauridia.Web.Core\Tauridia.Web.Core.csproj", "{595BD527-0CE4-4F3B-A524-795B4D1CD036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tauridia.Core", "Tauridia.Core\Tauridia.Core.csproj", "{C09B7D1C-6428-48FD-B427-0741992E6472}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{595BD527-0CE4-4F3B-A524-795B4D1CD036}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{595BD527-0CE4-4F3B-A524-795B4D1CD036}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{595BD527-0CE4-4F3B-A524-795B4D1CD036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C09B7D1C-6428-48FD-B427-0741992E6472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09B7D1C-6428-48FD-B427-0741992E6472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09B7D1C-6428-48FD-B427-0741992E6472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09B7D1C-6428-48FD-B427-0741992E6472}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
