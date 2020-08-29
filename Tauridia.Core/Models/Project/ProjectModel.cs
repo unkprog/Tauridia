@@ -1,8 +1,10 @@
-﻿namespace Tauridia.Core.Models.Project
+﻿using System.Collections.Generic;
+
+namespace Tauridia.Core.Models.Project
 {
-    public class ProjectModel : NamedModel
+    public partial class ProjectModel : NamedModel
     {
-        public List<ProjectItem> Items { get; private set; }
+        public List<ProjectItem> Items { get; internal set; }
     }
 
     public class ProjectItem
