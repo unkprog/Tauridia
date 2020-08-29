@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Xml;
 
@@ -70,12 +71,12 @@ namespace Tauridia.Core.Models.Project
         //    }
         //}
 
-        public static void Write(XmlWriter Writer)
+        public static void Write(this ProjectModel prj, XmlWriter Writer)
         {
             Writer.WriteStartElement("Project");
-            Writer.WriteAttributeString("Code", Code);
-            Writer.WriteAttributeString("Name", Name);
-            Writer.WriteAttributeString("Description", Description);
+            Writer.WriteAttributeString("Code", prj.Code);
+            Writer.WriteAttributeString("Name", prj.Name);
+            //Writer.WriteAttributeString("Description", Description);
 
             Writer.WriteStartElement("ProjectDependencies");
             for (int i = 0, icount = _ProjectDependencies.Count; i < icount; i++)
