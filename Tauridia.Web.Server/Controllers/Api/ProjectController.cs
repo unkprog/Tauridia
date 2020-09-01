@@ -15,9 +15,9 @@ namespace Tauridia.Web.Server.Controllers.Api
         }
 
         [HttpGet]
-        public IEnumerable<ProjectModel> Get()
+        public IEnumerable<Project> Get()
         {
-            return new ProjectModel[] { };
+            return new Project[] { };
         }
     }
 }
