@@ -33,16 +33,6 @@ namespace Tauridia.Core.Models.Project
             {
                 this.ReadItems(reader);
             });
-            //if (reader.IsEmptyElement)
-            //{
-            //    while (reader.Read() && reader.NodeType != XmlNodeType.EndElement)
-            //    {
-            //        if (reader.NodeType == XmlNodeType.Element)
-            //        {
-            //            this.ReadItems(reader);
-            //        }
-            //    }
-            //}
         }
 
         protected virtual void ReadProperties(XmlReader reader)
@@ -68,21 +58,6 @@ namespace Tauridia.Core.Models.Project
                 }
 
             });
-            //if (!reader.IsEmptyElement)
-            //{
-            //    while (reader.Read() && reader.NodeType != XmlNodeType.EndElement)
-            //    {
-            //        if (reader.NodeType == XmlNodeType.Element)
-            //        {
-            //            if (reader.Name == XmlFile)
-            //            {
-            //                ProjectFile projectFile = new ProjectFile();
-            //                projectFile.Read(reader);
-            //                this.Files.Add(projectFile);
-            //            }
-            //        }
-            //    }
-            //}
         }
 
         public void Write(XmlWriter writer)

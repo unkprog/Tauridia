@@ -2,6 +2,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageProjectUrl>https://github.com/unkprog/Tauridia</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Models\" />
