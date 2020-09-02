@@ -22,9 +22,14 @@
     <Compile Update="*Views\MainWindow.axaml.ViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
     </Compile>
-
-    <Compile Update="Views\WelcomeScreen.axaml.ViewModel.cs">
-      <DependentUpon>WelcomeScreen.axaml</DependentUpon>
+    <Compile Update="Views\Settings.axaml.ViewModel.cs">
+      <DependentUpon>Settings.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SplashScreen.axaml.cs">
+      <DependentUpon>SplashScreen.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Welcome.axaml.ViewModel.cs">
+      <DependentUpon>Welcome.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
