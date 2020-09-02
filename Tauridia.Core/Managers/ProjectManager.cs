@@ -11,6 +11,27 @@ namespace Tauridia.Core.Managers
     {
         internal static readonly string pathProjects = string.Concat(Environment.CurrentDirectory, @"\Projects");
 
+        public List<Project> ListProjects()
+        {
+            List<Project> result = new List<Project>();
+            string path = CheckDirectoryProject();
+
+            string[] dirs = Directory.GetDirectories(path);
+
+            foreach(var dir in dirs)
+            {
+                string[] prjs = Directory.GetFiles(dir, "*.tpj");
+                if (prjs != null && prjs.Length > 0 && !string.IsNullOrEmpty(prjs[0]))
+                {
+                    string name = prjs[0].Replace(dir, string.Empty).Replace(".tpj", string.Empty);
+                    if (!string.IsNullOrEmpty(name))
+                        result.Add(ReadProject(name));
+                }
+            }
+
+            return result;
+        }
+
         public Project ReadProject(string name)
         {
             Project result = null;
@@ -30,12 +51,19 @@ namespace Tauridia.Core.Managers
             return result;
         }
 
-        private string CheckDirectoryProject(string name)
+        private string CheckDirectoryProject(string name = null)
         {
-            string result = string.Concat(pathProjects, @"\", name);
+            string result = pathProjects;
+            if (!Directory.Exists(pathProjects))
+                Directory.CreateDirectory(pathProjects);
 
-            if (!Directory.Exists(result))
-                Directory.CreateDirectory(result);
+            if (!string.IsNullOrEmpty(name))
+            {
+                result = string.Concat(result, @"\", name);
+
+                if (!Directory.Exists(result))
+                    Directory.CreateDirectory(result);
+            }
 
             return result;
         }

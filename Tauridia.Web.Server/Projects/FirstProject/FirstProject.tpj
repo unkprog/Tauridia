@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Name="FirstProject">
+	<Files>
+		<File Name="Записи">
+			<Files>
+				<File Name="Запись1" />
+				<File Name="Запись2" />
+			</Files>
+		</File>
+	</Files>
+</Project>

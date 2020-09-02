@@ -36,10 +36,17 @@ namespace Tauridia.App.Views
             //    ProjectManager pm = new ProjectManager();
             //    pm.Save(prj);
             //};
+
+            //button.Click += (o, e) =>
+            //{
+            //    ProjectManager pm = new ProjectManager();
+            //    Project prj = pm.ReadProject("FirstProject");
+            //};
+
             button.Click += (o, e) =>
             {
                 ProjectManager pm = new ProjectManager();
-                Project prj = pm.ReadProject("FirstProject");
+                pm.ListProjects();
             };
         }
     }
