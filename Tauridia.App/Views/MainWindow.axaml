@@ -1,6 +1,8 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="clr-namespace:Tauridia.App.ViewModels;assembly=Tauridia.App"
+        xmlns:vm="clr-namespace:Tauridia.App.ViewModels.MainWindow;assembly=Tauridia.App"
+        xmlns:vmws="clr-namespace:Tauridia.App.ViewModels.WelcomeSreen;assembly=Tauridia.App"
+        xmlns:views="clr-namespace:Tauridia.App.Views;assembly=Tauridia.App"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
@@ -9,9 +11,16 @@
         Title="Tauridia.App">
 
     <Design.DataContext>
-        <vm:MainWindowViewModel/>
+      <vm:ViewModel/>
     </Design.DataContext>
 
-    <!--<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
-  <Button x:Name="TestButton">Test</Button>
+  <ContentControl Content="{Binding CurrentContent, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+    <ContentControl.DataTemplates>
+
+      <DataTemplate DataType="{x:Type vmws:ViewModel}">
+        <views:WelcomeSreen DataContext="{Binding}" />
+      </DataTemplate>
+    </ContentControl.DataTemplates>
+  </ContentControl>
+  
 </Window>

@@ -6,7 +6,7 @@ using Tauridia.Core.Models.Project;
 
 namespace Tauridia.App.Views
 {
-    public class MainWindow : Window
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
@@ -20,7 +20,7 @@ namespace Tauridia.App.Views
         {
             AvaloniaXamlLoader.Load(this);
 
-            Button button = this.FindControl<Button>("TestButton");
+           // Button button = this.FindControl<Button>("TestButton");
 
             //button.Click += (o, e) =>
             //{
@@ -43,11 +43,11 @@ namespace Tauridia.App.Views
             //    Project prj = pm.ReadProject("FirstProject");
             //};
 
-            button.Click += (o, e) =>
-            {
-                ProjectManager pm = new ProjectManager();
-                pm.ListProjects();
-            };
+            //button.Click += (o, e) =>
+            //{
+            //    ProjectManager pm = new ProjectManager();
+            //    pm.ListProjects();
+            //};
         }
     }
 }

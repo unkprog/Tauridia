@@ -1,0 +1,22 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Tauridia.App.ViewModels.WelcomeSreen;assembly=Tauridia.App"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Tauridia.App.Views.WelcomeSreen">
+  <Grid ColumnDefinitions="50,*,50" RowDefinitions="50, *, 50">
+
+    <Button Grid.Column="3" Margin="5">
+      <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.settings.png?assembly=Tauridia.App.Core"/>
+    </Button>
+    <Grid Grid.Row="1" Grid.Column="1" ColumnDefinitions="*,*">
+    <ListBox Margin="5">
+      
+    </ListBox>
+    <ListBox Grid.Row="1" Grid.Column="1"  Margin="5">
+
+    </ListBox>
+    </Grid>
+  </Grid>
+</UserControl>

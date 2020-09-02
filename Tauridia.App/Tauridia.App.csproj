@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,6 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
   <ItemGroup>
@@ -14,6 +15,16 @@
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.12" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tauridia.App.Core\Tauridia.App.Core.csproj" />
     <ProjectReference Include="..\Tauridia.Core\Tauridia.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="*Views\MainWindow.axaml.ViewModel.cs">
+      <DependentUpon>MainWindow.axaml</DependentUpon>
+    </Compile>
+
+    <Compile Update="Views\WelcomeScreen.axaml.ViewModel.cs">
+      <DependentUpon>WelcomeScreen.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
