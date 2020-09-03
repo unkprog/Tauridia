@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using ReactiveUI;
 
-namespace Tauridia.App.ViewModels
+namespace Tauridia.App.Models
 {
-    public class ModelBase : ReactiveObject
+    public class ModelBase
     {
     }
 }

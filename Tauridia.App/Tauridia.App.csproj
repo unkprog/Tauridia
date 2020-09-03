@@ -5,7 +5,6 @@
     <PackageProjectUrl>https://github.com/unkprog/Tauridia</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
 
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
@@ -21,6 +20,12 @@
   <ItemGroup>
     <Compile Update="*Views\MainWindow.axaml.ViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings - Копировать.axaml.ViewModel.cs">
+      <DependentUpon>Settings.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings.axaml.Model.cs">
+      <DependentUpon>Settings.axaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Settings.axaml.ViewModel.cs">
       <DependentUpon>Settings.axaml</DependentUpon>

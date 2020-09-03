@@ -1,28 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Runtime.Serialization;
 using ReactiveUI;
+using Tauridia.App.Models.Settings;
 
 namespace Tauridia.App.ViewModels.Settings
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : ModelBase
     {
         internal static readonly string fileSettings = "Settings.config";
         internal static readonly string pathSettings = string.Concat(Environment.CurrentDirectory, @"\Settings");
 
         public ViewModel()
         {
-            //CurrentContent = new ViewModels.WelcomeSreen.ViewModel();
+            
         }
-
-        private string _server = "https://localhost:44331";
 
         [DataMember]
-        public string Server
-        {
-            get => _server;
-            set => this.RaiseAndSetIfChanged(ref _server, value);
-        }
+        public ObservableCollection<ServerModel> ListServers { get; } = new ObservableCollection<ServerModel>();
 
         public void Load()
         {
@@ -32,6 +29,7 @@ namespace Tauridia.App.ViewModels.Settings
         public void Save()
         {
             CheckDirectorySettings();
+         
         }
 
         private string CheckDirectorySettings()

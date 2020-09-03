@@ -3,7 +3,7 @@ using System.Reactive;
 
 namespace Tauridia.App.ViewModels.Welcome
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : ModelBase
     {
         public ViewModel()
         {
