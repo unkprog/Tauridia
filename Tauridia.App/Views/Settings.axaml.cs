@@ -14,6 +14,7 @@ namespace Tauridia.App.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+           
         }
     }
 }

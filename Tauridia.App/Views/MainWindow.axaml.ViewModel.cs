@@ -5,9 +5,11 @@ namespace Tauridia.App.ViewModels.MainWindow
 {
     public class ViewModel : ViewModelBase
     {
+        public static ViewModel This;
         public ViewModel()
         {
-            CurrentContent = new ViewModels.WelcomeSreen.ViewModel();
+            This = this;
+            CurrentContent = new Welcome.ViewModel();
         }
 
         private ViewModelBase _currentContent;

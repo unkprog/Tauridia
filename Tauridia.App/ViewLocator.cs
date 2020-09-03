@@ -11,7 +11,9 @@ namespace Tauridia.App
 
         public IControl Build(object data)
         {
-            var name = data.GetType().FullName.Replace("ViewModel", "View");
+            var name = data.GetType().FullName;//.Replace("ViewModel", "View");
+            name = name.Substring(0, name.LastIndexOf('.')).Replace("Model", "");
+
             var type = Type.GetType(name);
 
             if (type != null)
