@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Xml;
+﻿using System.Xml;
+using Tauridia.Core.Extensions;
 
 namespace Tauridia.Core.Models.Project
 {
@@ -27,7 +24,7 @@ namespace Tauridia.Core.Models.Project
 
         private void ReadDependencies(XmlReader reader)
         {
-            WhileReadItem(reader, (reader) =>
+            reader.WhileReadItem((reader) =>
             {
                 if (reader.Name == XmlProject)
                 {

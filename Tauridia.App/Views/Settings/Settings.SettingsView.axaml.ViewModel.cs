@@ -8,18 +8,29 @@ using Tauridia.App.Models.Settings;
 
 namespace Tauridia.App.ViewModels.Settings
 {
-    public class ViewModel : ModelBase
+    public class SettingsViewModelBase : SerializableXmlViewModel
+    {
+        public string _name = "Настройка";
+        public string Name
+        {
+            get => _name;
+            set => this.RaiseAndSetIfChanged(ref _name, value);
+        }
+    }
+    public class ViewModel : ViewModelBase
     {
         internal static readonly string fileSettings = "Settings.config";
         internal static readonly string pathSettings = string.Concat(Environment.CurrentDirectory, @"\Settings");
 
         public ViewModel()
         {
-            
         }
 
+
         [DataMember]
-        public ObservableCollection<ServerModel> ListServers { get; } = new ObservableCollection<ServerModel>();
+        public List<ViewModelBase> ListSettings { get; } = new List<ViewModelBase>(new ViewModelBase[] { 
+            new ViewModels.Settings.Servers.ViewModel() { Name = "Серверы" }
+        });
 
         public void Load()
         {

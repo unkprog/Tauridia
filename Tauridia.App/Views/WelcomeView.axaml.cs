@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Tauridia.App.Views
 {
-    public class Settings : UserControl
+    public class WelcomeView : UserControl
     {
-        public Settings()
+        public WelcomeView()
         {
             this.InitializeComponent();
         }
@@ -14,7 +14,6 @@ namespace Tauridia.App.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
-           
         }
     }
 }

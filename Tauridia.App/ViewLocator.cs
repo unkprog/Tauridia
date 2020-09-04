@@ -12,7 +12,7 @@ namespace Tauridia.App
         public IControl Build(object data)
         {
             var name = data.GetType().FullName;//.Replace("ViewModel", "View");
-            name = name.Substring(0, name.LastIndexOf('.')).Replace("Model", "");
+            name = name.Substring(0, name.LastIndexOf('.')).Replace("Model", string.Empty) + "View";
 
             var type = Type.GetType(name);
 
@@ -28,7 +28,7 @@ namespace Tauridia.App
 
         public bool Match(object data)
         {
-            return data is ModelBase;
+            return data is ViewModelBase;
         }
     }
 }

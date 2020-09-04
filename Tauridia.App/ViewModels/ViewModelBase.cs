@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ReactiveUI;
+﻿using ReactiveUI;
 
 namespace Tauridia.App.ViewModels
 {
-    public class ModelBase : ReactiveObject
+    public class ViewModelBase : ReactiveObject
     {
     }
+
 }

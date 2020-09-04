@@ -3,7 +3,7 @@ using ReactiveUI;
 
 namespace Tauridia.App.ViewModels.MainWindow
 {
-    public class ViewModel : ModelBase
+    public class ViewModel : ViewModelBase
     {
         public static ViewModel This;
         public ViewModel()
@@ -12,10 +12,10 @@ namespace Tauridia.App.ViewModels.MainWindow
             CurrentContent = new Welcome.ViewModel();
         }
 
-        private ModelBase _currentContent;
+        private ViewModelBase _currentContent;
 
         [DataMember]
-        public ModelBase CurrentContent
+        public ViewModelBase CurrentContent
         {
             get => _currentContent;
             set => this.RaiseAndSetIfChanged(ref _currentContent, value);

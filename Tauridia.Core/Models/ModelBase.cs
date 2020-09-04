@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tauridia.Core
+namespace Tauridia.Core.Models
 {
     public class ModelBase
     {
@@ -10,6 +10,9 @@ namespace Tauridia.Core
     public class NamedModel : ModelBase 
     {
         public string Name { get; set; }
+
+        public string Description { get; set; }
     }
+
 
 }

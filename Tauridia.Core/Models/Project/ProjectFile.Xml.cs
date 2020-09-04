@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
+using Tauridia.Core.Extensions;
 
 namespace Tauridia.Core.Models.Project
 {
@@ -12,24 +13,11 @@ namespace Tauridia.Core.Models.Project
         public const string XmlFile = "File";
         public const string XmlFiles = "Files";
 
-        protected void WhileReadItem(XmlReader reader, Action<XmlReader> readerAction)
-        {
-            if (!reader.IsEmptyElement)
-            {
-                while (reader.Read() && reader.NodeType != XmlNodeType.EndElement)
-                {
-                    if (reader.NodeType == XmlNodeType.Element)
-                    {
-                        readerAction?.Invoke(reader);
-                    }
-                }
-            }
-        }
 
         public void Read(XmlReader reader)
         {
             this.ReadProperties(reader);
-            WhileReadItem(reader, (reader) =>
+            reader.WhileReadItem((reader) =>
             {
                 this.ReadItems(reader);
             });
@@ -48,7 +36,7 @@ namespace Tauridia.Core.Models.Project
 
         private void ReadFiles(XmlReader reader)
         {
-            WhileReadItem(reader, (reader) =>
+            reader.WhileReadItem((reader) =>
             {
                 if (reader.Name == XmlFile)
                 {

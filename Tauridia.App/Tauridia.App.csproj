@@ -24,17 +24,29 @@
     <Compile Update="Views\Settings - Копировать.axaml.ViewModel.cs">
       <DependentUpon>Settings.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Settings.axaml.Model.cs">
+    <Compile Update="Views\Settings\Settings.SettingsView.axaml.cs">
+      <DependentUpon>Settings.SettingsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\Settings.axaml.Model.cs">
       <DependentUpon>Settings.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Settings.axaml.ViewModel.cs">
-      <DependentUpon>Settings.axaml</DependentUpon>
+    <Compile Update="Views\Settings\Settings.ServersView.axaml.cs">
+      <DependentUpon>Settings.ServersView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\SplashScreen.axaml.cs">
-      <DependentUpon>SplashScreen.axaml</DependentUpon>
+    <Compile Update="Views\Settings\Settings.ServersView.axaml.ViewModel.cs">
+      <DependentUpon>Settings.ServersView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Welcome.axaml.ViewModel.cs">
-      <DependentUpon>Welcome.axaml</DependentUpon>
+    <Compile Update="Views\Settings\Settings.SettingsView.axaml.ViewModel.cs">
+      <DependentUpon>Settings.SettingsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SplashView.axaml.cs">
+      <DependentUpon>SplashView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WelcomeView.axaml.cs">
+      <DependentUpon>WelcomeView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WelcomeView.axaml.ViewModel.cs">
+      <DependentUpon>WelcomeView.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

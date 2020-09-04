@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Tauridia.App.Views
 {
-    public class SplashScreen : UserControl
+    public partial class SettingsView : UserControl
     {
-        public SplashScreen()
+        public SettingsView()
         {
             this.InitializeComponent();
         }
@@ -14,6 +14,7 @@ namespace Tauridia.App.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+           
         }
     }
 }
