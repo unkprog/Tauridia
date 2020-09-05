@@ -32,8 +32,8 @@ namespace Tauridia.App.Views.Settings
 
         [DataMember]
         public List<SettingsViewModelBase> ListSettings { get; } = new List<SettingsViewModelBase>(new SettingsViewModelBase[] { 
-            new ServersViewModel() { Name = "Подключения" },
-            new AboutViewModel() { Name = "О программе" }
+            new ServersViewModel() { Name = "Подключения" }
+            //, new AboutViewModel() { Name = "О программе" }
         });
 
         [IgnoreDataMember]

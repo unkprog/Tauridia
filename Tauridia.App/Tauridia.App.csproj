@@ -33,7 +33,7 @@
     <Compile Update="Views\Settings\ServersViewModel.cs">
       <DependentUpon>ServersView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Settings\AboutViewModel.cs">
+    <Compile Update="Views\AboutViewModel.cs">
       <DependentUpon>AboutView.axaml</DependentUpon>
     </Compile>
   </ItemGroup>

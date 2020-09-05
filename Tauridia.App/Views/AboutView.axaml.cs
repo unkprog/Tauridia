@@ -2,7 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace Tauridia.App.Views.Settings
+namespace Tauridia.App.Views
 {
     public class AboutView : UserControl
     {

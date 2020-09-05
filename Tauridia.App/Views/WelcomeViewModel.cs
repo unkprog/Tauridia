@@ -12,5 +12,6 @@ namespace Tauridia.App.Views
         }
 
         public ReactiveCommand<Unit, Unit> SettingsCommand => ReactiveCommand.Create(() =>  { MainWindowViewModel.This.CurrentContent = new Settings.SettingsViewModel(); });
+        public ReactiveCommand<Unit, Unit> AboutCommand => ReactiveCommand.Create(() => { MainWindowViewModel.This.CurrentContent = new AboutViewModel(); });
     }
 }
