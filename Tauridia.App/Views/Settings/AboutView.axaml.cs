@@ -4,10 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Tauridia.App.Views.Settings
 {
-
-    public class ServersView : UserControl
+    public class AboutView : UserControl
     {
-        public ServersView()
+        public AboutView()
         {
             this.InitializeComponent();
         }

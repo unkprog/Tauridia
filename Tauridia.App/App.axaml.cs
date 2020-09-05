@@ -19,7 +19,7 @@ namespace Tauridia.App
             {
                 desktop.MainWindow = new MainWindow
                 {
-                    DataContext = new ViewModels.MainWindow.ViewModel(),
+                    DataContext = new MainWindowViewModel(),
                 };
             }
 

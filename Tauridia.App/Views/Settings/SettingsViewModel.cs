@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
+using System.Reactive;
 using System.Runtime.Serialization;
 using ReactiveUI;
-using Tauridia.App.Models.Settings;
+using Tauridia.App.ViewModels;
 
-namespace Tauridia.App.ViewModels.Settings
+namespace Tauridia.App.Views.Settings
 {
     public class SettingsViewModelBase : SerializableXmlViewModel
     {
@@ -17,20 +17,28 @@ namespace Tauridia.App.ViewModels.Settings
             set => this.RaiseAndSetIfChanged(ref _name, value);
         }
     }
-    public class ViewModel : ViewModelBase
+
+    public class SettingsViewModel : ViewModelBase
     {
         internal static readonly string fileSettings = "Settings.config";
         internal static readonly string pathSettings = string.Concat(Environment.CurrentDirectory, @"\Settings");
 
-        public ViewModel()
+        public SettingsViewModel()
         {
+            SaveCommand = ReactiveCommand.Create(Save);
+            CancelCommand = ReactiveCommand.Create(Cancel);
         }
 
 
         [DataMember]
-        public List<ViewModelBase> ListSettings { get; } = new List<ViewModelBase>(new ViewModelBase[] { 
-            new ViewModels.Settings.Servers.ViewModel() { Name = "Серверы" }
+        public List<SettingsViewModelBase> ListSettings { get; } = new List<SettingsViewModelBase>(new SettingsViewModelBase[] { 
+            new ServersViewModel() { Name = "Подключения" },
+            new AboutViewModel() { Name = "О программе" }
         });
+
+        [IgnoreDataMember]
+        public ReactiveCommand<Unit, Unit> SaveCommand { get; }
+        public ReactiveCommand<Unit, Unit> CancelCommand { get; }
 
         public void Load()
         {
@@ -40,7 +48,13 @@ namespace Tauridia.App.ViewModels.Settings
         public void Save()
         {
             CheckDirectorySettings();
-         
+            MainWindowViewModel.This.CurrentContent = new WelcomeViewModel();
+        }
+
+        public void Cancel()
+        {
+            Load();
+            MainWindowViewModel.This.CurrentContent = new WelcomeViewModel();
         }
 
         private string CheckDirectorySettings()

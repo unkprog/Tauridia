@@ -9,44 +9,32 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.9.12" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.9.12" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.12" />
+    <PackageReference Include="Avalonia" Version="0.10.0-preview5" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview5" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-preview5" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tauridia.App.Core\Tauridia.App.Core.csproj" />
     <ProjectReference Include="..\Tauridia.Core\Tauridia.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="*Views\MainWindow.axaml.ViewModel.cs">
+    <Compile Update="*Views\MainWindowViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Settings - Копировать.axaml.ViewModel.cs">
-      <DependentUpon>Settings.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\Settings.SettingsView.axaml.cs">
-      <DependentUpon>Settings.SettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\Settings.axaml.Model.cs">
-      <DependentUpon>Settings.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\Settings.ServersView.axaml.cs">
-      <DependentUpon>Settings.ServersView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\Settings.ServersView.axaml.ViewModel.cs">
-      <DependentUpon>Settings.ServersView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\Settings.SettingsView.axaml.ViewModel.cs">
-      <DependentUpon>Settings.SettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\SplashView.axaml.cs">
+    <Compile Update="Views\SplashViewModel.cs">
       <DependentUpon>SplashView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\WelcomeView.axaml.cs">
+    <Compile Update="Views\WelcomeViewModel.cs">
       <DependentUpon>WelcomeView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\WelcomeView.axaml.ViewModel.cs">
-      <DependentUpon>WelcomeView.axaml</DependentUpon>
+    <Compile Update="Views\Settings\SettingsViewModel.cs">
+      <DependentUpon>SettingsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\ServersViewModel.cs">
+      <DependentUpon>ServersView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\AboutViewModel.cs">
+      <DependentUpon>AboutView.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

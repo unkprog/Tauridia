@@ -1,15 +1,16 @@
 ﻿using System.Runtime.Serialization;
 using ReactiveUI;
+using Tauridia.App.ViewModels;
 
-namespace Tauridia.App.ViewModels.MainWindow
+namespace Tauridia.App.Views
 {
-    public class ViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
-        public static ViewModel This;
-        public ViewModel()
+        public static MainWindowViewModel This;
+        public MainWindowViewModel()
         {
             This = this;
-            CurrentContent = new Welcome.ViewModel();
+            CurrentContent = new WelcomeViewModel();
         }
 
         private ViewModelBase _currentContent;

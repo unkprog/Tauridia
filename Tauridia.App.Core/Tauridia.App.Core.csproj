@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Icons\Png\connection.png" />
     <None Remove="Assets\Icons\Png\settings.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\Icons\Png\connection.png" />
     <EmbeddedResource Include="Assets\Icons\Png\settings.png" />
   </ItemGroup>
 

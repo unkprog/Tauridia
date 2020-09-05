@@ -1,8 +1,9 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 
-namespace Tauridia.App.Views
+namespace Tauridia.App.Views.Settings
 {
     public partial class SettingsView : UserControl
     {
@@ -16,5 +17,6 @@ namespace Tauridia.App.Views
             AvaloniaXamlLoader.Load(this);
            
         }
+
     }
 }
