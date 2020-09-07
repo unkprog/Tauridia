@@ -1,15 +1,13 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Input;
+﻿using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using Tauridia.App.Models.Settings;
+
 
 namespace Tauridia.App.Views.Settings
 {
 
-    public class ServersView : UserControl
+    public class ConnectionsServersView : UserControl
     {
-        public ServersView()
+        public ConnectionsServersView()
         {
             this.InitializeComponent();
         }

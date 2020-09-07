@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
 
-namespace Tauridia.App.Models.Settings
+namespace Tauridia.Core.Models.Connection
 {
-    public class ServerModel : Tauridia.Core.Models.ModelBase
+    public partial class ConnectionServerModel : ModelBase
     {
         [DataMember]
         public string Name { get; set; }

@@ -10,8 +10,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.0-preview5" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.9.12" />
     <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview5" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-preview5" />
+    <PackageReference Include="Dock.Avalonia" Version="0.9.12" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tauridia.App.Core\Tauridia.App.Core.csproj" />
@@ -21,6 +23,9 @@
     <Compile Update="*Views\MainWindowViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Settings\ConnectionsServersViewModel.cs">
+      <DependentUpon>ConnectionsServersView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SplashViewModel.cs">
       <DependentUpon>SplashView.axaml</DependentUpon>
     </Compile>
@@ -29,9 +34,6 @@
     </Compile>
     <Compile Update="Views\Settings\SettingsViewModel.cs">
       <DependentUpon>SettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\ServersViewModel.cs">
-      <DependentUpon>ServersView.axaml</DependentUpon>
     </Compile>
     <Compile Update="Views\AboutViewModel.cs">
       <DependentUpon>AboutView.axaml</DependentUpon>

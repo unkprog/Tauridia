@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
+﻿using System.Xml;
 using Tauridia.Core.Extensions;
+using Tauridia.Core.Interfaces;
 
 namespace Tauridia.Core.Models.Project
 {
-    partial class ProjectFile
+    partial class ProjectFile : ISerializableXml
     {
         public virtual string XmlName => XmlFile;
 

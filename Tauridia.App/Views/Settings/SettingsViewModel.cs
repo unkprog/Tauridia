@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reactive;
 using System.Runtime.Serialization;
+using System.Xml;
 using ReactiveUI;
 using Tauridia.App.ViewModels;
 
@@ -32,7 +33,7 @@ namespace Tauridia.App.Views.Settings
 
         [DataMember]
         public List<SettingsViewModelBase> ListSettings { get; } = new List<SettingsViewModelBase>(new SettingsViewModelBase[] { 
-            new ServersViewModel() { Name = "Подключения" }
+            new ConnectionsServersViewModel() { Name = "Подключения" }
             //, new AboutViewModel() { Name = "О программе" }
         });
 
@@ -48,6 +49,22 @@ namespace Tauridia.App.Views.Settings
         public void Save()
         {
             CheckDirectorySettings();
+
+            string path = string.Concat(CheckDirectorySettings(), @"\settings.config");
+
+            using (TextWriter textWriter = File.CreateText(path))
+            {
+                using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, new XmlWriterSettings() { Indent = true, IndentChars = "\t", NewLineChars = System.Environment.NewLine }))
+                {
+                    xmlWriter.WriteStartDocument();
+                    foreach (var setting in ListSettings)
+                    {
+                        setting.Write(xmlWriter);
+                    }
+                    xmlWriter.WriteEndDocument();
+                }
+            }
+
             MainWindowViewModel.This.CurrentContent = new WelcomeViewModel();
         }
 

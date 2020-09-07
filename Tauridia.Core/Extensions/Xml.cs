@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace Tauridia.Core.Extensions
 {
-    public static class Xml
+    public static class XmlExtensions
     {
         public static void WhileReadItem(this XmlReader reader, Action<XmlReader> readerAction)
         {
