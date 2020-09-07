@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Xml;
+using Tauridia.Core.Extensions;
 using Tauridia.Core.Models.Project;
 
 namespace Tauridia.Core.Managers
@@ -33,20 +35,12 @@ namespace Tauridia.Core.Managers
 
         public Project ReadProject(string name)
         {
-            Project result = null;
+            Project result = new Project();
             string path = string.Concat(CheckDirectoryProject(name), @"\", name, ".tpj");
-            if (File.Exists(path))
+            XmlExtensions.XmlRead(path, result.XmlName, (reader) =>
             {
-                result = new Project();
-                using (XmlReader reader = XmlReader.Create(path))
-                {
-                    while (reader.Read() && reader.NodeType != XmlNodeType.EndElement)
-                    {
-                        if (reader.NodeType == XmlNodeType.Element && reader.Name == result.XmlName)
-                            result.Read(reader);
-                    }
-                }
-            }
+                result.Read(reader);
+            });
             return result;
         }
 
@@ -71,15 +65,10 @@ namespace Tauridia.Core.Managers
         {
             string path = string.Concat(CheckDirectoryProject(prj.Name), @"\", prj.Name, ".tpj");
 
-            using (TextWriter textWriter = File.CreateText(path))
+            XmlExtensions.XmlWrite(path, (writer) =>
             {
-                using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, new XmlWriterSettings() { Indent = true, IndentChars = "\t", NewLineChars = System.Environment.NewLine }))
-                {
-                    xmlWriter.WriteStartDocument();
-                    prj.Write(xmlWriter);
-                    xmlWriter.WriteEndDocument();
-                }
-            }
+                prj.Write(writer);
+            });
         }
     }
 }

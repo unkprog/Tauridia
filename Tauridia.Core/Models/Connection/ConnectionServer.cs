@@ -3,7 +3,7 @@
 
 namespace Tauridia.Core.Models.Connection
 {
-    public partial class ConnectionServerModel : ModelBase
+    public partial class ConnectionServerModel : SerializableXml
     {
         [DataMember]
         public string Name { get; set; }

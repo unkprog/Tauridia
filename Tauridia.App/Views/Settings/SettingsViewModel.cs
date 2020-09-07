@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Xml;
 using ReactiveUI;
 using Tauridia.App.ViewModels;
+using Tauridia.Core.Extensions;
 
 namespace Tauridia.App.Views.Settings
 {
@@ -44,26 +45,38 @@ namespace Tauridia.App.Views.Settings
         public void Load()
         {
             CheckDirectorySettings();
+
+            XmlExtensions.XmlRead(GetFileNameSettings(), "", (reader) =>
+            {
+                foreach (var setting in ListSettings)
+                {
+                    setting.Write(writer);
+                }
+            });
         }
 
         public void Save()
         {
-            CheckDirectorySettings();
-
-            string path = string.Concat(CheckDirectorySettings(), @"\settings.config");
-
-            using (TextWriter textWriter = File.CreateText(path))
+           
+            XmlExtensions.XmlWrite(GetFileNameSettings(), (writer) =>
             {
-                using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, new XmlWriterSettings() { Indent = true, IndentChars = "\t", NewLineChars = System.Environment.NewLine }))
+                foreach (var setting in ListSettings)
                 {
-                    xmlWriter.WriteStartDocument();
-                    foreach (var setting in ListSettings)
-                    {
-                        setting.Write(xmlWriter);
-                    }
-                    xmlWriter.WriteEndDocument();
+                    setting.Write(writer);
                 }
-            }
+            });
+            //using (TextWriter textWriter = File.CreateText(path))
+            //{
+            //    using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, new XmlWriterSettings() { Indent = true, IndentChars = "\t", NewLineChars = System.Environment.NewLine }))
+            //    {
+            //        xmlWriter.WriteStartDocument();
+            //        foreach (var setting in ListSettings)
+            //        {
+            //            setting.Write(xmlWriter);
+            //        }
+            //        xmlWriter.WriteEndDocument();
+            //    }
+            //}
 
             MainWindowViewModel.This.CurrentContent = new WelcomeViewModel();
         }
@@ -80,6 +93,11 @@ namespace Tauridia.App.Views.Settings
             if (!Directory.Exists(pathSettings))
                 Directory.CreateDirectory(pathSettings);
             return result;
+        }
+
+        private string GetFileNameSettings()
+        {
+            return string.Concat(CheckDirectorySettings(), @"\settings.config");
         }
     }
 }
