@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using System.Xml;
 using Tauridia.Core.Extensions;
 using Tauridia.Core.Models.Project;
 
@@ -11,6 +9,28 @@ namespace Tauridia.Core.Managers
     public class ProjectManager
     {
         internal static readonly string pathProjects = string.Concat(Environment.CurrentDirectory, @"\Projects");
+
+        private string CheckDirectoryProject(string name = null)
+        {
+            string result = pathProjects;
+            if (!Directory.Exists(pathProjects))
+                Directory.CreateDirectory(pathProjects);
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                result = string.Concat(result, @"\", name);
+
+                if (!Directory.Exists(result))
+                    Directory.CreateDirectory(result);
+            }
+
+            return result;
+        }
+
+        private string GetFileNameProject(string name = null)
+        {
+            return string.Concat(CheckDirectoryProject(name), @"\", name, ".tpj");
+        }
 
         public List<Project> ListProjects()
         {
@@ -35,40 +55,12 @@ namespace Tauridia.Core.Managers
 
         public Project ReadProject(string name)
         {
-            Project result = new Project();
-            string path = string.Concat(CheckDirectoryProject(name), @"\", name, ".tpj");
-            XmlExtensions.XmlRead(path, result.XmlName, (reader) =>
-            {
-                result.Read(reader);
-            });
-            return result;
-        }
-
-        private string CheckDirectoryProject(string name = null)
-        {
-            string result = pathProjects;
-            if (!Directory.Exists(pathProjects))
-                Directory.CreateDirectory(pathProjects);
-
-            if (!string.IsNullOrEmpty(name))
-            {
-                result = string.Concat(result, @"\", name);
-
-                if (!Directory.Exists(result))
-                    Directory.CreateDirectory(result);
-            }
-
-            return result;
+            return Json.Read<Project>(GetFileNameProject(name));
         }
 
         public void Save(Project prj)
         {
-            string path = string.Concat(CheckDirectoryProject(prj.Name), @"\", prj.Name, ".tpj");
-
-            XmlExtensions.XmlWrite(path, (writer) =>
-            {
-                prj.Write(writer);
-            });
+            Json.Write(GetFileNameProject(prj.Name), prj);
         }
     }
 }

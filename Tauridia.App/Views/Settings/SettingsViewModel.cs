@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reactive;
 using System.Runtime.Serialization;
-using System.Xml;
 using ReactiveUI;
 using Tauridia.App.ViewModels;
 using Tauridia.Core.Extensions;
+using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views.Settings
 {
-    public class SettingsViewModelBase : SerializableXmlViewModel
+    public class SettingsViewModelBase : ViewModelBase
     {
-        public string _name = "Настройка";
+        private string _name = "Настройка";
         public string Name
         {
             get => _name;
@@ -20,6 +20,7 @@ namespace Tauridia.App.Views.Settings
         }
     }
 
+    [DataContract(Name = "Settings")]
     public class SettingsViewModel : ViewModelBase
     {
         internal static readonly string fileSettings = "Settings.config";
@@ -33,51 +34,27 @@ namespace Tauridia.App.Views.Settings
 
 
         [DataMember]
-        public List<SettingsViewModelBase> ListSettings { get; } = new List<SettingsViewModelBase>(new SettingsViewModelBase[] { 
+        public List<SettingsViewModelBase> ListSettings { get; private set; } = new List<SettingsViewModelBase>(new SettingsViewModelBase[] { 
             new ConnectionsServersViewModel() { Name = "Подключения" }
             //, new AboutViewModel() { Name = "О программе" }
         });
 
         [IgnoreDataMember]
         public ReactiveCommand<Unit, Unit> SaveCommand { get; }
+        [IgnoreDataMember]
         public ReactiveCommand<Unit, Unit> CancelCommand { get; }
 
         public void Load()
         {
             CheckDirectorySettings();
 
-            XmlExtensions.XmlRead(GetFileNameSettings(), "", (reader) =>
-            {
-                foreach (var setting in ListSettings)
-                {
-                    setting.Write(writer);
-                }
-            });
+            ListSettings = Json.Read<List<SettingsViewModelBase>>(GetFileNameSettings());
+            this.RaisePropertyChanged("ListSettings");
         }
 
         public void Save()
         {
-           
-            XmlExtensions.XmlWrite(GetFileNameSettings(), (writer) =>
-            {
-                foreach (var setting in ListSettings)
-                {
-                    setting.Write(writer);
-                }
-            });
-            //using (TextWriter textWriter = File.CreateText(path))
-            //{
-            //    using (XmlWriter xmlWriter = XmlWriter.Create(textWriter, new XmlWriterSettings() { Indent = true, IndentChars = "\t", NewLineChars = System.Environment.NewLine }))
-            //    {
-            //        xmlWriter.WriteStartDocument();
-            //        foreach (var setting in ListSettings)
-            //        {
-            //            setting.Write(xmlWriter);
-            //        }
-            //        xmlWriter.WriteEndDocument();
-            //    }
-            //}
-
+            Json.Write(GetFileNameSettings(), this );
             MainWindowViewModel.This.CurrentContent = new WelcomeViewModel();
         }
 

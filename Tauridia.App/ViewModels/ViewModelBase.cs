@@ -1,8 +1,8 @@
-﻿using ReactiveUI;
+﻿using Tauridia.Core.Models;
 
 namespace Tauridia.App.ViewModels
 {
-    public class ViewModelBase : ReactiveObject
+    public class ViewModelBase : ModelBase
     {
     }
 

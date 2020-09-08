@@ -5,7 +5,5 @@ using ReactiveUI;
 
 namespace Tauridia.App.Models
 {
-    public class ModelBase
-    {
-    }
+
 }
