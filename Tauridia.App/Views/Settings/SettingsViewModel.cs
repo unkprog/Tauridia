@@ -54,7 +54,7 @@ namespace Tauridia.App.Views.Settings
 
         public void Save()
         {
-            Json.Write(GetFileNameSettings(), this );
+            Json.Write(GetFileNameSettings(), this);
             MainWindowViewModel.This.CurrentContent = new WelcomeViewModel();
         }
 

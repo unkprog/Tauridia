@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tauridia.App", "Tauridia.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tauridia.Project", "Tauridia.Project\Tauridia.Project.csproj", "{8451F26F-77E3-4072-B61E-C6A61BC8A643}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tauridia.App.Core", "Tauridia.App.Core\Tauridia.App.Core.csproj", "{216112FC-5927-4233-B451-DA62DEDD381E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tauridia.App.Core", "Tauridia.App.Core\Tauridia.App.Core.csproj", "{216112FC-5927-4233-B451-DA62DEDD381E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tauridia.Console.Test", "Tauridia.Console.Test\Tauridia.Console.Test.csproj", "{6F64D20A-F30A-48A9-843C-26863A571730}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{216112FC-5927-4233-B451-DA62DEDD381E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{216112FC-5927-4233-B451-DA62DEDD381E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{216112FC-5927-4233-B451-DA62DEDD381E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F64D20A-F30A-48A9-843C-26863A571730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F64D20A-F30A-48A9-843C-26863A571730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F64D20A-F30A-48A9-843C-26863A571730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F64D20A-F30A-48A9-843C-26863A571730}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
