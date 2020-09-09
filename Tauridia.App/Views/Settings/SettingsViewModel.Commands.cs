@@ -6,17 +6,11 @@ namespace Tauridia.App.Views.Settings
 {
     partial class SettingsViewModel
     {
-        internal void InitCommands()
-        {
-            SaveCommand = ReactiveCommand.Create(Save);
-            CancelCommand = ReactiveCommand.Create(Cancel);
-        }
+        [IgnoreDataMember]
+        public ReactiveCommand<Unit, Unit> SaveCommand => ReactiveCommand.Create(Save);
 
         [IgnoreDataMember]
-        public ReactiveCommand<Unit, Unit> SaveCommand { get; private set; }
-
-        [IgnoreDataMember]
-        public ReactiveCommand<Unit, Unit> CancelCommand { get; private set; }
+        public ReactiveCommand<Unit, Unit> CancelCommand => ReactiveCommand.Create(Cancel);
 
 
     }

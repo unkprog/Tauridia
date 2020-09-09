@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization;
-using ReactiveUI;
-using Tauridia.App.ViewModels;
+using Tauridia.Core.Models;
 using Tauridia.Core.Extensions;
 
 namespace Tauridia.App.Views.Settings
@@ -12,15 +10,14 @@ namespace Tauridia.App.Views.Settings
     {
         public SettingsViewModel()
         {
-            InitCommands();
+            InitProperties();
         }
 
         public void Load()
         {
             CheckDirectorySettings();
-
-            ListSettings = Json.Read<List<SettingsViewModelBase>>(GetFileNameSettings());
-            this.RaisePropertyChanged("ListSettings");
+            SettingsViewModel loadedSettings = Json.Read<SettingsViewModel>(GetFileNameSettings());
+            InitProperties(loadedSettings);
         }
 
         public void Save()

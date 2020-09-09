@@ -1,17 +1,13 @@
-﻿using ReactiveUI;
-using System.Reactive;
-using Tauridia.App.ViewModels;
+﻿using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views
 {
-    public class WelcomeViewModel : ViewModelBase
+    public partial class WelcomeViewModel : ViewModelBase
     {
         public WelcomeViewModel()
         {
 
         }
 
-        public ReactiveCommand<Unit, Unit> SettingsCommand => ReactiveCommand.Create(() =>  { MainWindowViewModel.This.CurrentContent = new Settings.SettingsViewModel(); });
-        public ReactiveCommand<Unit, Unit> AboutCommand => ReactiveCommand.Create(() => { MainWindowViewModel.This.CurrentContent = new AboutViewModel(); });
     }
 }

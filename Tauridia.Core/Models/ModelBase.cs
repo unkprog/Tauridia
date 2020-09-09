@@ -9,6 +9,10 @@ namespace Tauridia.Core.Models
         
     }
 
+    public class ViewModelBase : ModelBase
+    {
+    }
+
     [DataContract]
     public class NamedModel : ModelBase 
     {

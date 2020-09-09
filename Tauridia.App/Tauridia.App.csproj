@@ -20,13 +20,19 @@
     <ProjectReference Include="..\Tauridia.Core\Tauridia.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="*Views\MainWindowViewModel.cs">
+    <Compile Update="App.Properties.cs">
+      <DependentUpon>App.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MainWindowViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SplashViewModel.cs">
       <DependentUpon>SplashView.axaml</DependentUpon>
     </Compile>
     <Compile Update="Views\WelcomeViewModel.cs">
+      <DependentUpon>WelcomeView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WelcomeViewModel.Commands.cs">
       <DependentUpon>WelcomeView.axaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Settings\SettingsViewModel.cs">
@@ -43,6 +49,15 @@
     </Compile>    
     <Compile Update="Views\AboutViewModel.cs">
       <DependentUpon>AboutView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginViewModel.cs">
+      <DependentUpon>LoginView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginViewModel.Properties.cs">
+      <DependentUpon>LoginView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginViewModel.Commands.cs">
+      <DependentUpon>LoginView.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

@@ -1,12 +1,11 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Tauridia.App.ViewModels;
 using Tauridia.App.Views;
 
 namespace Tauridia.App
 {
-    public class App : Application
+    public partial class App : Application
     {
         public override void Initialize()
         {
@@ -15,6 +14,8 @@ namespace Tauridia.App
 
         public override void OnFrameworkInitializationCompleted()
         {
+            Settings.Load();
+
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindow

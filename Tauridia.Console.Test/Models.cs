@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace Tauridia.Console.Test
 {
@@ -16,8 +14,6 @@ namespace Tauridia.Console.Test
         [DataMember]
         public string Name { get; set; }
 
-        [IgnoreDataMember]
-        public List<BaseModel> ItemsBase { get; set; } = new List<BaseModel>(new BaseModel[] { new BaseModel() { Name = "OneBase" }, new BaseModel() { Name = "TwoBase" } });
     }
 
     [DataContract]
@@ -27,8 +23,7 @@ namespace Tauridia.Console.Test
         {
             Name = "OneModel";
         }
-        [DataMember]
-        public List<BaseModel> Items { get; set; }  = new List<BaseModel>(new BaseModel[] { new BaseModel() { Name = "One" }, new BaseModel() { Name = "Two" } });
+        public List<BaseModel> OneItems { get; set; } = new List<BaseModel>(new BaseModel[] { new BaseModel() { Name = "One" }, new BaseModel() { Name = "Two" } });
     }
 
     [DataContract]
@@ -38,5 +33,8 @@ namespace Tauridia.Console.Test
         {
             Name = "TwoModel";
         }
+
+        [DataMember]
+        public List<BaseModel> Items { get; set; } = new List<BaseModel>(new BaseModel[] { new BaseModel() { Name = "One BaseModel" }, new OneModel() { Name = "Two OneModel" } });
     }
 }

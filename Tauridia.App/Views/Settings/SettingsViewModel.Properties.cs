@@ -10,14 +10,20 @@ namespace Tauridia.App.Views.Settings
         internal static readonly string fileSettings = "Settings.config";
         internal static readonly string pathSettings = string.Concat(Environment.CurrentDirectory, @"\Settings");
 
-
-        internal void InitProperties()
+        internal void InitProperties(SettingsViewModel loadedSettings = null)
         {
+            if (loadedSettings != null)
+            {
+                if (loadedSettings.ConnectionsServers != null)
+                    ConnectionsServers = loadedSettings.ConnectionsServers;
+            }
+            
             ListSettings = new List<SettingsViewModelBase>(new SettingsViewModelBase[] { ConnectionsServers });
+            this.RaisePropertyChanged("ListSettings");
         }
 
         [IgnoreDataMember]
-        public List<SettingsViewModelBase> ListSettings { get; private set; }
+        public List<SettingsViewModelBase> ListSettings { get; private set; } 
 
 
         private ConnectionsServersViewModel connectionsServers = new ConnectionsServersViewModel() { Name = "Подключения" };

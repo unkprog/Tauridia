@@ -1,15 +1,21 @@
 ﻿using System.Runtime.Serialization;
 using ReactiveUI;
-using Tauridia.App.ViewModels;
+using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public static MainWindowViewModel This;
+        private static MainWindowViewModel _this = null;
+        public static MainWindowViewModel This
+        {
+            get { if (_this == null) _this = new MainWindowViewModel(); return _this; }
+            private set { _this = value; }
+        }
+
         public MainWindowViewModel()
         {
-            This = this;
+            _this = this;
             CurrentContent = new WelcomeViewModel();
         }
 

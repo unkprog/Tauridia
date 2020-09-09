@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 using System.Reactive;
-using Tauridia.App.ViewModels;
+using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views
 {

@@ -1,4 +1,4 @@
-﻿using Tauridia.App.ViewModels;
+﻿using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views
 {

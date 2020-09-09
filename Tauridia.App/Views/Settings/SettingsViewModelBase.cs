@@ -1,9 +1,10 @@
 ﻿using System.Runtime.Serialization;
 using ReactiveUI;
-using Tauridia.App.ViewModels;
+using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views.Settings
 {
+    [DataContract]
     public class SettingsViewModelBase : ViewModelBase
     {
         private string _name = "Настройка";
