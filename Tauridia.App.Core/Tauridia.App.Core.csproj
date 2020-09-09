@@ -6,21 +6,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Icons\Png\check.png" />
+    <None Remove="Assets\Icons\Png\close.png" />
     <None Remove="Assets\Icons\Png\connection.png" />
     <None Remove="Assets\Icons\Png\help.png" />
     <None Remove="Assets\Icons\Png\settings.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\Icons\Png\check.png" />
+    <EmbeddedResource Include="Assets\Icons\Png\close.png" />
     <EmbeddedResource Include="Assets\Icons\Png\connection.png" />
     <EmbeddedResource Include="Assets\Icons\Png\help.png" />
     <EmbeddedResource Include="Assets\Icons\Png\settings.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.9.12" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.9.12" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.12" />
+    <PackageReference Include="Avalonia" Version="0.10.0-preview5" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview5" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-preview5" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,11 +9,14 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaResource Remove="Assets\Styles\Styles1.axaml" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.0-preview5" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.9.12" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.0-preview5" />
     <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview5" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-preview5" />
-    <PackageReference Include="Dock.Avalonia" Version="0.9.12" />
+    <PackageReference Include="Dock.Avalonia" Version="0.10.0-preview5" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tauridia.App.Core\Tauridia.App.Core.csproj" />
@@ -25,6 +28,9 @@
     </Compile>
     <Compile Update="Views\MainWindowViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TitledView.axaml.cs">
+      <DependentUpon>TitledView.axaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SplashViewModel.cs">
       <DependentUpon>SplashView.axaml</DependentUpon>
@@ -59,5 +65,10 @@
     <Compile Update="Views\LoginViewModel.Commands.cs">
       <DependentUpon>LoginView.axaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaXaml Update="Assets\Styles\Styles1.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaXaml>
   </ItemGroup>
 </Project>

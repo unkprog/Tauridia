@@ -6,19 +6,8 @@
              x:Class="Tauridia.App.Views.Settings.ConnectionsServersView">
 
   <UserControl.Resources>
-    
-    <DataTemplate x:Key="ConnectionServerItemTemplate">
-      <StackPanel Orientation="Horizontal" Margin="3">
-        <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.connection.png?assembly=Tauridia.App.Core" Width="50" Height="50"/>
-        <StackPanel Orientation="Vertical">
-          <TextBlock Text="{Binding Name, Mode=OneWay}" FontSize="16" FontWeight="Bold"/>
-          <TextBlock Text="{Binding Url, Mode=OneWay}" FontSize="14" />
-          <TextBlock Text="{Binding Description, Mode=OneWay}" />
-        </StackPanel>
-      </StackPanel>
-    </DataTemplate>
-
   </UserControl.Resources>
+  
   <Grid ColumnDefinitions="30*,70*">
     <ListBox Items="{Binding ListServers, Mode=TwoWay}" ItemTemplate="{StaticResource ConnectionServerItemTemplate}" SelectedItem="{Binding SelectedConnectionServer, Mode=TwoWay}"/>
     <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
