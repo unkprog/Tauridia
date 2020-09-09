@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Reactive;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using ReactiveUI;
 
@@ -7,6 +7,9 @@ namespace Tauridia.App.Views.Settings
 {
     partial class SettingsViewModel
     {
+        internal static readonly string fileSettings = "Settings.config";
+        internal static readonly string pathSettings = string.Concat(Environment.CurrentDirectory, @"\Settings");
+
 
         internal void InitProperties()
         {
