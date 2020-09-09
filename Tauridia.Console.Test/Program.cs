@@ -13,7 +13,7 @@ namespace Tauridia.Console.Test
             SettingsViewModel model = new SettingsViewModel();
             ConnectionsServersViewModel obj = new ConnectionsServersViewModel() { Name = "Подключения" };
 
-                string jsonString = System.Text.Encoding.UTF8.GetString(JsonSerializer.Serialize(model.ListSettings[0].li, Utf8Json.Resolvers.StandardResolver.Default)); // StandardResolver.Default);//);
+                string jsonString = System.Text.Encoding.UTF8.GetString(JsonSerializer.Serialize(model, Utf8Json.Resolvers.StandardResolver.Default)); // StandardResolver.Default);//);
             System.Console.WriteLine(jsonString);
 
             //jsonString = System.Text.Encoding.UTF8.GetString(JsonSerializer.Serialize(new TwoModel(), Utf8Json.Resolvers.StandardResolver.Default)); // StandardResolver.Default);//);

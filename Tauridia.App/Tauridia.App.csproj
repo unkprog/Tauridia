@@ -23,9 +23,6 @@
     <Compile Update="*Views\MainWindowViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Settings\ConnectionsServersViewModel.cs">
-      <DependentUpon>ConnectionsServersView.axaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\SplashViewModel.cs">
       <DependentUpon>SplashView.axaml</DependentUpon>
     </Compile>
@@ -35,6 +32,15 @@
     <Compile Update="Views\Settings\SettingsViewModel.cs">
       <DependentUpon>SettingsView.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Settings\SettingsViewModel.Commands.cs">
+      <DependentUpon>SettingsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\SettingsViewModel.Properties.cs">
+      <DependentUpon>SettingsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\ConnectionsServersViewModel.cs">
+      <DependentUpon>ConnectionsServersView.axaml</DependentUpon>
+    </Compile>    
     <Compile Update="Views\AboutViewModel.cs">
       <DependentUpon>AboutView.axaml</DependentUpon>
     </Compile>
