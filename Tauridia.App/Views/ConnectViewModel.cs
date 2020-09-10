@@ -2,9 +2,9 @@
 
 namespace Tauridia.App.Views
 {
-    public partial class WelcomeViewModel : ViewModelBase
+    public partial class ConnectViewModel : ViewModelBase
     {
-        public WelcomeViewModel()
+        public ConnectViewModel()
         {
 
         }

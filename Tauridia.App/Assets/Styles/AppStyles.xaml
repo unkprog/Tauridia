@@ -10,7 +10,7 @@
     <DataTemplate x:Key="ConnectionServerItemTemplate">
       <StackPanel Orientation="Horizontal" Margin="3">
         <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.connection.png?assembly=Tauridia.App.Core" Width="50" Height="50"/>
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Margin="10 0">
           <TextBlock Text="{Binding Name, Mode=OneWay}" FontSize="16" FontWeight="Bold"/>
           <TextBlock Text="{Binding Url, Mode=OneWay}" FontSize="14" />
           <TextBlock Text="{Binding Description, Mode=OneWay}" />

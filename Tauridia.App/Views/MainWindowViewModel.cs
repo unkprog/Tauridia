@@ -16,7 +16,7 @@ namespace Tauridia.App.Views
         public MainWindowViewModel()
         {
             _this = this;
-            CurrentContent = new WelcomeViewModel();
+            CurrentContent = new ConnectViewModel();
         }
 
         private ViewModelBase _currentContent;

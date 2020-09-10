@@ -9,7 +9,7 @@
   </UserControl.Resources>
   
   <Grid ColumnDefinitions="30*,70*">
-    <ListBox Items="{Binding ListServers, Mode=TwoWay}" ItemTemplate="{StaticResource ConnectionServerItemTemplate}" SelectedItem="{Binding SelectedConnectionServer, Mode=TwoWay}"/>
+    <ListBox BorderThickness="0" Items="{Binding ListServers, Mode=TwoWay}" ItemTemplate="{StaticResource ConnectionServerItemTemplate}" SelectedItem="{Binding SelectedConnectionServer, Mode=TwoWay}"/>
     <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="Auto, *" DataContext="{Binding SelectedConnectionServer}">
           <TextBlock Text="Имя"/>

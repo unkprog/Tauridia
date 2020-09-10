@@ -30,15 +30,20 @@
     <Compile Update="Views\MainWindowViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
     </Compile>
-    
     <Compile Update="Views\SplashViewModel.cs">
       <DependentUpon>SplashView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\WelcomeViewModel.cs">
-      <DependentUpon>WelcomeView.axaml</DependentUpon>
+    <Compile Update="Views\ConnectView.axaml.cs">
+      <DependentUpon>ConnectView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\WelcomeViewModel.Commands.cs">
-      <DependentUpon>WelcomeView.axaml</DependentUpon>
+    <Compile Update="Views\ConnectViewModel.cs">
+      <DependentUpon>ConnectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ConnectViewModel.Commands.cs">
+      <DependentUpon>ConnectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ConnectViewModel.Properties.cs">
+      <DependentUpon>ConnectView.axaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Settings\SettingsViewModel.cs">
       <DependentUpon>SettingsView.axaml</DependentUpon>

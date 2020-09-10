@@ -4,13 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              x:Class="Tauridia.App.Views.Settings.SettingsView"
              xmlns:vm="clr-namespace:Tauridia.App.Views.Settings;assembly=Tauridia.App"
-             
+             xmlns:ctrl="clr-namespace:Tauridia.App.Controls;assembly=Tauridia.App.Controls"
              >
   <Design.DataContext>
     <vm:SettingsViewModel/>
   </Design.DataContext>
 
-  <Grid RowDefinitions="Auto,*">
+  <ctrl:TitledControl BorderBrush="Gray" BorderThickness="1" Grid.RowSpan="2" Grid.Column="1" IsVisibleOk="True" IsVisibleCancel="True">
+    <ctrl:TitledControl.Header>
+      <TextBlock Text="Настройки" Margin="3 0" VerticalAlignment="Center" FontSize="22"  />
+    </ctrl:TitledControl.Header>
+    <ctrl:TitledControl.Content>
+      <TabControl Grid.Row="1" Items="{Binding ListSettings}" TabStripPlacement="Left">
+        <TabControl.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding Name}" />
+          </DataTemplate>
+        </TabControl.ItemTemplate>
+        <TabControl.ContentTemplate>
+          <DataTemplate>
+            <ContentControl Content="{Binding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+          </DataTemplate>
+        </TabControl.ContentTemplate>
+      </TabControl>    
+    </ctrl:TitledControl.Content>
+  </ctrl:TitledControl>
+
+  
+  <!--<Grid RowDefinitions="Auto,*">
     <Border Padding="5" Margin="0 0 0 5" Background="Silver">
       <Grid ColumnDefinitions="*,Auto, Auto">
         <TextBlock Text="Настройки" VerticalAlignment="Center" FontSize="22"  />
@@ -29,11 +50,6 @@
           <ContentControl Content="{Binding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </DataTemplate>
       </TabControl.ContentTemplate>
-      <!--<TabControl.Styles>
-        <Style Selector="TabItem">
-          --><!--<Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>--><!--
-        </Style>
-      </TabControl.Styles>-->
     </TabControl>
-  </Grid>
+  </Grid>-->
 </UserControl>

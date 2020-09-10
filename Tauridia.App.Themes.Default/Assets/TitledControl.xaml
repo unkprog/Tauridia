@@ -5,28 +5,35 @@
   <Style Selector="ctrl|TitledControl">
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid RowDefinitions="Auto,*">
-          <Border Padding="5" Background="Silver">
-            <Grid ColumnDefinitions="*,Auto, Auto">
-              <TextBlock Text="Настройки" VerticalAlignment="Center" FontSize="22"  />
-              <Button Grid.Column="1" Width="30" Height="30">
-                <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.check.png?assembly=Tauridia.App.Core"/>
-              </Button>
-              <Button Grid.Column="2"  Width="30" Height="30" Margin="5 0 0 0">
-                <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.close.png?assembly=Tauridia.App.Core"/>
-              </Button>
-            </Grid>
-          </Border>
-          <ContentPresenter Grid.Row="1" Name="PART_ContentPresenter"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Content="{TemplateBinding Content}"
-                            Padding="{TemplateBinding Padding}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
-        </Grid>
+        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}">
+          <Grid RowDefinitions="Auto,Auto,*" >
+            <Border Padding="3" Background="Silver">
+              <Grid ColumnDefinitions="*,Auto, Auto">
+                <ContentPresenter Name="PART_HeaderPresenter"
+                                  Background="{TemplateBinding HeaderBackground}"
+                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                  Content="{TemplateBinding Header}"
+                                  Margin="3 0" />
+                <Button Grid.Column="1" Width="30" Height="30" Margin="0 0 3 0" IsVisible="{TemplateBinding IsVisibleOk}">
+                  <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.check.png?assembly=Tauridia.App.Core"/>
+                </Button>
+                <Button Grid.Column="2"  Width="30" Height="30" Margin="0" IsVisible="{TemplateBinding IsVisibleCancel}">
+                  <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.close.png?assembly=Tauridia.App.Core"/>
+                </Button>
+              </Grid>
+            </Border>
+            <Rectangle Grid.Row="1" Height="1" Fill="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+            <ContentPresenter Grid.Row="2" Name="PART_ContentPresenter"
+                              Background="{TemplateBinding Background}"
+                            
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              Padding="{TemplateBinding Padding}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+          </Grid>
+        </Border>
       </ControlTemplate>
     </Setter>
   </Style>

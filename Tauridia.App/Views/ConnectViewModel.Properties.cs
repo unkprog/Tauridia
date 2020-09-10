@@ -5,7 +5,7 @@ using Tauridia.Core.Models.Connection;
 
 namespace Tauridia.App.Views
 {
-    public partial class WelcomeViewModel
+    public partial class ConnectViewModel
     {
         [DataMember]
         public ObservableCollection<ConnectionServer> ListServers => App.Settings.ConnectionsServers.ListServers;
