@@ -6,7 +6,7 @@
              xmlns:v="clr-namespace:Tauridia.App.Views;assembly=Tauridia.App"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tauridia.App.Views.WelcomeView">
-  <Grid ColumnDefinitions="50,*,50,50" RowDefinitions="50, *, 50">
+  <Grid ColumnDefinitions="50,*,50" RowDefinitions="50, *, 50">
 
     <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5">
       <Button Margin="5" Command="{Binding SettingsCommand}" Width="50" Height="50">
@@ -16,10 +16,8 @@
         <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.help.png?assembly=Tauridia.App.Core"/>
       </Button>
     </StackPanel>
-    <v:TitledView>
-      <Grid Grid.Row="1" Grid.Column="1" ColumnDefinitions="*,*">
+    <HeaderedContentControl Grid.Row="1" Grid.Column="1" Header="Test" Background="Red">
         <ListBox Items="{Binding ListServers, Mode=OneWay}" ItemTemplate="{StaticResource ConnectionServerItemTemplate}" SelectedItem="{Binding SelectedConnectionServer, Mode=TwoWay}"/>
-      </Grid>
-    </v:TitledView>
+    </HeaderedContentControl>
   </Grid>
 </UserControl>

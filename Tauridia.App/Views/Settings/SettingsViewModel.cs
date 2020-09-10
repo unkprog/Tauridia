@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using Tauridia.Core.Models;
 using Tauridia.Core.Extensions;
+using System.ComponentModel;
 
 namespace Tauridia.App.Views.Settings
 {
@@ -15,9 +16,16 @@ namespace Tauridia.App.Views.Settings
 
         public void Load()
         {
-            CheckDirectorySettings();
-            SettingsViewModel loadedSettings = Json.Read<SettingsViewModel>(GetFileNameSettings());
-            InitProperties(loadedSettings);
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                try
+                {
+                    CheckDirectorySettings();
+                    SettingsViewModel loadedSettings = Json.Read<SettingsViewModel>(GetFileNameSettings());
+                    InitProperties(loadedSettings);
+                }
+                catch { }
+            }
         }
 
         public void Save()
