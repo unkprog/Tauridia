@@ -1,6 +1,10 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:Tauridia.App.Views">
+        x:Class="Tauridia.App.Assets.Styles.AppStyles">
+  <Design.PreviewWith>
+    <Border Padding="20">
+    </Border>
+  </Design.PreviewWith>
 
   <Styles.Resources>
     <DataTemplate x:Key="ConnectionServerItemTemplate">
@@ -15,6 +19,8 @@
     </DataTemplate>
   </Styles.Resources>
 
-  <StyleInclude Source="resm:Tauridia.App.Assets.Styles.TitledView.axaml?assembly=Tauridia.App" />
+
+  
+  <!--<StyleInclude Source="resm:Tauridia.App.Assets.Styles.TitledView.xaml" />-->
   
 </Styles>

@@ -1,0 +1,6 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Tauridia.App.Themes.Default.DefaultTheme">
+  <!-- Define ToolTip first so its styles can be overriden by other controls (e.g. TextBox) -->
+  <StyleInclude Source="resm:Tauridia.App.Themes.Default.Assets.TitledControl.xaml?assembly=Tauridia.App.Themes.Default"/>
+</Styles>

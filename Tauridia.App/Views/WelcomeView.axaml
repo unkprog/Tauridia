@@ -4,6 +4,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:v="clr-namespace:Tauridia.App.Views;assembly=Tauridia.App"
+             xmlns:ctrl="clr-namespace:Tauridia.App.Controls;assembly=Tauridia.App.Controls"
+             
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tauridia.App.Views.WelcomeView">
   <Grid ColumnDefinitions="50,*,50" RowDefinitions="50, *, 50">
@@ -16,8 +18,8 @@
         <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.help.png?assembly=Tauridia.App.Core"/>
       </Button>
     </StackPanel>
-    <HeaderedContentControl Grid.Row="1" Grid.Column="1" Header="Test" Background="Red">
+    <ctrl:TitledControl Grid.Row="1" Grid.Column="1" Background="Red">
         <ListBox Items="{Binding ListServers, Mode=OneWay}" ItemTemplate="{StaticResource ConnectionServerItemTemplate}" SelectedItem="{Binding SelectedConnectionServer, Mode=TwoWay}"/>
-    </HeaderedContentControl>
+    </ctrl:TitledControl>
   </Grid>
 </UserControl>

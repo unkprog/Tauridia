@@ -1,7 +1,8 @@
-﻿  <Style xmlns="https://github.com/avaloniaui"
+﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:Tauridia.App.Views"
-        Selector="local:TitledView">
+        xmlns:ctrl="clr-namespace:Tauridia.App.Controls;assembly=Tauridia.App.Controls">
+  
+  <Style Selector="ctrl|TitledControl">
     <Setter Property="Template">
       <ControlTemplate>
         <ContentPresenter Name="PART_ContentPresenter"
@@ -16,4 +17,5 @@
       </ControlTemplate>
     </Setter>
   </Style>
+</Styles>
 

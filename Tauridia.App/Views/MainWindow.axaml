@@ -1,17 +1,16 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:views="clr-namespace:Tauridia.App.Views;assembly=Tauridia.App"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Tauridia.App.Views.MainWindow"
-        xmlns:vm="clr-namespace:Tauridia.App.Views.MainWindowViewModel;assembly=Tauridia.App"
-        Icon="/Assets/avalonia-logo.ico"
+        xmlns:v="clr-namespace:Tauridia.App.Views"
+        Icon="/Assets/Icons/avalonia-logo.ico"
         Title="Tauridia.App">
 
-    <Design.DataContext>
-      <vm:MainVindowViewModel/>
-    </Design.DataContext>
+    <!--<Design.DataContext>
+      <v:MainVindowViewModel/>
+    </Design.DataContext>-->
 
   <ContentControl Content="{Binding CurrentContent, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
     <!--<ContentControl.DataTemplates>

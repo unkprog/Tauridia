@@ -3,6 +3,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageProjectUrl>https://github.com/unkprog/Tauridia</PackageProjectUrl>
+    <ApplicationIcon>Assets\Icons\avalonia-logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.0-preview5" />
@@ -12,14 +13,16 @@
     <PackageReference Include="Dock.Avalonia" Version="0.10.0-preview5" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tauridia.App.Controls\Tauridia.App.Controls.csproj" />
     <ProjectReference Include="..\Tauridia.App.Core\Tauridia.App.Core.csproj" />
+    <ProjectReference Include="..\Tauridia.App.Themes.Default\Tauridia.App.Themes.Default.csproj" />
     <ProjectReference Include="..\Tauridia.Core\Tauridia.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Include="Assets\Icons\**" />
+    <AvaloniaResource Include="Assets\Styles\AppStyles.xaml" />
+
   </ItemGroup>
-
-
   <ItemGroup>
     <Compile Update="App.Properties.cs">
       <DependentUpon>App.axaml</DependentUpon>
@@ -61,7 +64,5 @@
     <Compile Update="Views\LoginViewModel.Commands.cs">
       <DependentUpon>LoginView.axaml</DependentUpon>
     </Compile>
-
-    <Compile Update="Views\TitledView.cs" />
   </ItemGroup>
 </Project>

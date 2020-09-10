@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.0-preview5" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview5" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\*.xaml" />
+    <AvaloniaResource Include="DefaultTheme.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tauridia.App.Controls\Tauridia.App.Controls.csproj" />
+  </ItemGroup>
+
+</Project>
