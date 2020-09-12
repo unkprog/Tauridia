@@ -6,27 +6,24 @@ using Tauridia.Core.Models.Connection;
 namespace Tauridia.App.Views.Settings
 {
     [DataContract]
-    public class ConnectionsServersViewModel : SettingsViewModelBase
+    public partial class ConnectionsServersViewModel : SettingsViewModelBase
     {
-
-       [DataMember]
-       public ObservableCollection<ConnectionServer> ListServers { get; set; } = new ObservableCollection<ConnectionServer>(
-            new ConnectionServer[]
-            {
-                new ConnectionServer(){ Name = "Server (Debug)", Description = "Отладочный сервер", Url = "https://localhost:44331" },
-                new ConnectionServer(){ Name = "Server (Release)", Description = "Продуктовый сервер", Url = "https://localhost:5001" }
-            });
-
-
-        private ConnectionServer _selectedConnectionServer;
-
-        [IgnoreDataMember]
-        public ConnectionServer SelectedConnectionServer
+        public void AddConnection()
         {
-            get => _selectedConnectionServer;
-            set => this.RaiseAndSetIfChanged(ref _selectedConnectionServer, value);
+            ConnectionServer connectionServer = new ConnectionServer() { Name = "Новое подключение" };
+            ListServers.Add(connectionServer);
+            SelectedConnectionServer = connectionServer;
+            this.RaisePropertyChanged("ListServers");
         }
 
-
+        public void RemoveConnection()
+        {
+            if (SelectedConnectionServer != null)
+            {
+                ListServers.Remove(SelectedConnectionServer);
+                SelectedConnectionServer = null;
+                this.RaisePropertyChanged("ListServers");
+            }
+        }
     }
 }

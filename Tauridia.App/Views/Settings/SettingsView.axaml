@@ -10,12 +10,14 @@
     <vm:SettingsViewModel/>
   </Design.DataContext>
 
-  <ctrl:TitledControl BorderBrush="Gray" BorderThickness="1" Grid.RowSpan="2" Grid.Column="1" IsVisibleOk="True" IsVisibleCancel="True">
+  <ctrl:TitledControl Classes="stretch" Grid.RowSpan="2" Grid.Column="1"
+                      IsVisibleOk="True" IsVisibleCancel="True"
+                      CommandOk="{Binding SaveCommand}" CommandCancel="{Binding CancelCommand}">
     <ctrl:TitledControl.Header>
-      <TextBlock Text="Настройки" Margin="3 0" VerticalAlignment="Center" FontSize="22"  />
+      <TextBlock Classes="headerLabel" Text="Настройки" />
     </ctrl:TitledControl.Header>
     <ctrl:TitledControl.Content>
-      <TabControl Grid.Row="1" Items="{Binding ListSettings}" TabStripPlacement="Left">
+      <TabControl Grid.Row="1" Items="{Binding ListSettings}" TabStripPlacement="Left" Padding="0">
         <TabControl.ItemTemplate>
           <DataTemplate>
             <TextBlock Text="{Binding Name}" />
@@ -23,7 +25,7 @@
         </TabControl.ItemTemplate>
         <TabControl.ContentTemplate>
           <DataTemplate>
-            <ContentControl Content="{Binding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <ContentControl BorderThickness="1 0 0 0" BorderBrush="Gray" Content="{Binding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
           </DataTemplate>
         </TabControl.ContentTemplate>
       </TabControl>    

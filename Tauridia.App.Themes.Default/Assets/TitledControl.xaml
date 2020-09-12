@@ -3,6 +3,8 @@
         xmlns:ctrl="clr-namespace:Tauridia.App.Controls;assembly=Tauridia.App.Controls">
 
   <Style Selector="ctrl|TitledControl">
+    <Setter Property="BorderBrush" Value="Gray"/>
+    <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="Template">
       <ControlTemplate>
         <Border BorderBrush="{TemplateBinding BorderBrush}"
@@ -15,10 +17,10 @@
                                   ContentTemplate="{TemplateBinding HeaderTemplate}"
                                   Content="{TemplateBinding Header}"
                                   Margin="3 0" />
-                <Button Grid.Column="1" Width="30" Height="30" Margin="0 0 3 0" IsVisible="{TemplateBinding IsVisibleOk}">
+                <Button Name="PART_ButtonOk" Grid.Column="1" Width="30" Height="30" Margin="0 0 3 0" IsVisible="{TemplateBinding IsVisibleOk}" Command="{TemplateBinding CommandOk}">
                   <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.check.png?assembly=Tauridia.App.Core"/>
                 </Button>
-                <Button Grid.Column="2"  Width="30" Height="30" Margin="0" IsVisible="{TemplateBinding IsVisibleCancel}">
+                <Button Name="PART_ButtonCancel" Grid.Column="2"  Width="30" Height="30" Margin="0" IsVisible="{TemplateBinding IsVisibleCancel}" Command="{TemplateBinding CommandCancel}">
                   <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.close.png?assembly=Tauridia.App.Core"/>
                 </Button>
               </Grid>

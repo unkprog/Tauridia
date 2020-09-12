@@ -18,9 +18,9 @@
       </Button>
     </StackPanel>
     
-    <ctrl:TitledControl BorderBrush="Gray" BorderThickness="1" Grid.RowSpan="2" Grid.Column="1" Width="600" Height="400" IsVisibleOk="True">
+    <ctrl:TitledControl Grid.RowSpan="2" Grid.Column="1" Width="600" Height="400">
       <ctrl:TitledControl.Header>
-            <TextBlock Text="Подключение" Margin="3 0" VerticalAlignment="Center" FontSize="22"  />
+            <TextBlock Classes="headerLabel" Text="Подключение"/>
       </ctrl:TitledControl.Header>
       <ctrl:TitledControl.Content>
         <ListBox Items="{Binding ListServers, Mode=OneWay}" BorderThickness="0" ItemTemplate="{StaticResource ConnectionServerItemTemplate}" SelectedItem="{Binding SelectedConnectionServer, Mode=TwoWay}"/>

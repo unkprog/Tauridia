@@ -5,19 +5,28 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tauridia.App.Views.Settings.ConnectionsServersView">
 
-  <UserControl.Resources>
-  </UserControl.Resources>
+  <UserControl.Styles>
+    <Style Selector="TextBlock.label">
+      <Setter Property="VerticalAlignment" Value="Center"/>
+      <Setter Property="Margin" Value="5 0"/>
+    </Style>
+  </UserControl.Styles>
   
   <Grid ColumnDefinitions="30*,70*">
-    <ListBox BorderThickness="0" Items="{Binding ListServers, Mode=TwoWay}" ItemTemplate="{StaticResource ConnectionServerItemTemplate}" SelectedItem="{Binding SelectedConnectionServer, Mode=TwoWay}"/>
-    <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="Auto, *" DataContext="{Binding SelectedConnectionServer}">
-          <TextBlock Text="Имя"/>
-          <TextBox Grid.Column="1" Text="{Binding Name, Mode=TwoWay}" Width="250" Margin="0 2" />
-          <TextBlock Grid.Row="1" Text="Адрес"/>
-          <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Url, Mode=TwoWay}" Width="250" Margin="0 2" />
-          <TextBlock Grid.Row="2" Text="Описание"/>
-          <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Description, Mode=TwoWay}" Width="250" Margin="0 2" />
+    <ListBox Name="lbConnections" Margin="3" BorderThickness="1" Items="{Binding ListServers, Mode=TwoWay}" ItemTemplate="{StaticResource ConnectionServerItemTemplate}" SelectedItem="{Binding SelectedConnectionServer, Mode=TwoWay}"/>
+    <ScrollViewer Padding="3" BorderThickness="1" BorderBrush="{Binding #lbConnections.BorderBrush}" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid ColumnDefinitions="Auto, 100*, Auto" RowDefinitions="Auto, Auto, Auto" DataContext="{Binding SelectedConnectionServer}">
+          <TextBlock Classes="label" Text="Имя" />
+          <TextBox Grid.Column="1" Text="{Binding Name, Mode=TwoWay}" Margin="0 2" />
+          <TextBlock Grid.Row="1" Classes="label" Text="Адрес"/>
+          <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Url, Mode=TwoWay}" Margin="0 2" />
+          <TextBlock Grid.Row="2" Classes="label" Text="Описание"/>
+          <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Description, Mode=TwoWay}" Margin="0 2" />
+
+          <StackPanel Grid.Column="2" Grid.RowSpan="3" >
+            <Button Content="Добавить" Margin="15 2 12 2" Width="100" IsEnabled="True" DataContext="{Binding $parent[UserControl].DataContext, Mode=OneWay}" Command="{Binding AddConnectionCommand}" />
+            <Button Content="Удалить" Margin="15 2 12 2" Width="100" IsEnabled="True" DataContext="{Binding $parent[UserControl].DataContext, Mode=OneWay}" Command="{Binding RemoveConnectionCommand}" />
+          </StackPanel>
         </Grid>
     </ScrollViewer>
   </Grid>

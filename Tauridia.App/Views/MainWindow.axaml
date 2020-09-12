@@ -5,8 +5,9 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Tauridia.App.Views.MainWindow"
         xmlns:v="clr-namespace:Tauridia.App.Views"
-        Icon="/Assets/Icons/avalonia-logo.ico"
-        Title="Tauridia.App">
+        Icon="/Assets/Icons/logo.ico"
+        Title="Tauridia"
+        WindowState="Maximized">
 
     <!--<Design.DataContext>
       <v:MainVindowViewModel/>

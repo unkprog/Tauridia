@@ -4,9 +4,14 @@ using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
+using Avalonia.Data;
+using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.LogicalTree;
 using Avalonia.Metadata;
+using System;
+using System.Drawing;
+using System.Windows.Input;
 
 #nullable enable
 
@@ -20,6 +25,11 @@ namespace Tauridia.App.Controls
             ContentProperty.Changed.AddClassHandler<TitledControl>((x, e) => x.HeaderContentChanged(e));
         }
 
+        //public TitledControl()
+        //{
+        //    //BorderBrush = new SolidBrush(Color.Gray);
+        //    //BorderThickness = new Thickness(1);
+        //}
         public static readonly StyledProperty<object?> HeaderProperty = AvaloniaProperty.Register<TitledControl, object?>(nameof(Header));
         public object? Header
         {
@@ -138,5 +148,74 @@ namespace Tauridia.App.Controls
             get { return GetValue(IsVisibleCancelProperty); }
             set { SetValue(IsVisibleCancelProperty, value); }
         }
+
+        public static readonly RoutedEvent<RoutedEventArgs> ClickOkEvent = RoutedEvent.Register<TitledControl, RoutedEventArgs>(nameof(ClickOk), RoutingStrategies.Bubble);
+        public event EventHandler<RoutedEventArgs> ClickOk
+        {
+            add { AddHandler(ClickOkEvent, value); }
+            remove { RemoveHandler(ClickOkEvent, value); }
+        }
+
+        public static readonly RoutedEvent<RoutedEventArgs> ClickCancelEvent = RoutedEvent.Register<TitledControl, RoutedEventArgs>(nameof(ClickCancel), RoutingStrategies.Bubble);
+        public event EventHandler<RoutedEventArgs> ClickCancel
+        {
+            add { AddHandler(ClickCancelEvent, value); }
+            remove { RemoveHandler(ClickCancelEvent, value); }
+        }
+
+        //private Button _buttonOk, _buttonCancel;
+        //protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        //{
+        //    _buttonOk = e.NameScope.Find<Button>("PART_ButtonOk");
+        //    _buttonCancel = e.NameScope.Find<Button>("PART_ButtonCancel");
+            
+        //    base.OnApplyTemplate(e);
+
+        //}
+        private ICommand _commandOk, _commandCancel;
+        //private bool _commandOkCanExecute = true, _commandCancelCanExecute = true;
+
+        //protected override bool IsEnabledCore => base.IsEnabledCore && _commandOkCanExecute && _commandCancelCanExecute;
+
+        public static readonly DirectProperty<TitledControl, ICommand> CommandOkProperty = AvaloniaProperty.RegisterDirect<TitledControl, ICommand>(nameof(CommandOk), buttonOk => buttonOk.CommandOk, (buttonOk, commandOk) => buttonOk.CommandOk = commandOk, enableDataValidation: true);
+        public ICommand CommandOk
+        {
+            get { return _commandOk; }
+            set { SetAndRaise(CommandOkProperty, ref _commandOk, value);   }
+        }
+
+        public static readonly DirectProperty<TitledControl, ICommand> CommandCancelProperty = AvaloniaProperty.RegisterDirect<TitledControl, ICommand>(nameof(CommandCancel), _buttonCancel => _buttonCancel.CommandCancel, (_buttonCancel, commandCancel) => _buttonCancel.CommandCancel = commandCancel, enableDataValidation: true);
+        public ICommand CommandCancel
+        {
+            get { return _commandCancel; }
+            set { SetAndRaise(CommandCancelProperty, ref _commandCancel, value);  }
+        }
+
+        //protected override void UpdateDataValidation<T>(AvaloniaProperty<T> property, BindingValue<T> value)
+        //{
+        //    base.UpdateDataValidation(property, value);
+        //    if (property == CommandOkProperty)
+        //    {
+        //        if (value.Type == BindingValueType.BindingError)
+        //        {
+        //            if (_commandOkCanExecute)
+        //            {
+        //                _commandOkCanExecute = false;
+        //                UpdateIsEffectivelyEnabled();
+        //            }
+        //        }
+        //    }
+        //    else if (property == CommandCancelProperty)
+        //    {
+        //        if (value.Type == BindingValueType.BindingError)
+        //        {
+        //            if (_commandCancelCanExecute)
+        //            {
+        //                _commandCancelCanExecute = false;
+        //                UpdateIsEffectivelyEnabled();
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

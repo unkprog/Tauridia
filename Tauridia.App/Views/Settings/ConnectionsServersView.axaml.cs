@@ -16,5 +16,6 @@ namespace Tauridia.App.Views.Settings
         {
             AvaloniaXamlLoader.Load(this);
         }
+       
     }
 }

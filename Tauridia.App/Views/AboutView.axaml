@@ -3,8 +3,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Tauridia.App.Views.AboutView">
-  <Grid RowDefinitions="Auto,*">
+             xmlns:ctrl="clr-namespace:Tauridia.App.Controls;assembly=Tauridia.App.Controls"
+            x:Class="Tauridia.App.Views.AboutView">
+  <!--<Grid RowDefinitions="Auto,*">
     <Border Padding="5" Margin="0 0 0 5" Background="Silver">
       <Grid ColumnDefinitions="*,Auto, Auto">
         <TextBlock Text="О программе" VerticalAlignment="Center" FontSize="22"  />
@@ -12,5 +13,13 @@
         <Button Grid.Column="2" Content="Отмена" Width="75" Command="{Binding CancelCommand}" Margin="5 0" />
       </Grid>
     </Border>
-  </Grid>
+  </Grid>-->
+  <ctrl:TitledControl Classes="stretch" IsVisibleCancel="True" CommandCancel="{Binding CloseCommand}">
+    <ctrl:TitledControl.Header>
+      <TextBlock Classes="headerLabel" Text="О Программе"/>
+    </ctrl:TitledControl.Header>
+    <ctrl:TitledControl.Content>
+      О Программе
+    </ctrl:TitledControl.Content>
+  </ctrl:TitledControl>
 </UserControl>
