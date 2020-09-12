@@ -31,6 +31,18 @@
     <Compile Update="Views\MainWindowViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Settings\ProgramSettingsView.axaml.cs">
+      <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\ProgramSettingsViewmodel.cs">
+      <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\ProgramSettingsViewmodel.Properties.cs">
+      <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\ProgramSettingsViewmodel.Commands.cs">
+      <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SplashViewModel.cs">
       <DependentUpon>SplashView.axaml</DependentUpon>
     </Compile>

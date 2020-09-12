@@ -29,5 +29,5 @@
           </StackPanel>
         </Grid>
     </ScrollViewer>
-  </Grid>
+  </Grid>  
 </UserControl>

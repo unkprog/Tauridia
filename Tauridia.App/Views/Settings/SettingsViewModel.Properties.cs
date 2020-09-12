@@ -18,7 +18,7 @@ namespace Tauridia.App.Views.Settings
                     ConnectionsServers = loadedSettings.ConnectionsServers;
             }
             
-            ListSettings = new List<SettingsViewModelBase>(new SettingsViewModelBase[] { ConnectionsServers });
+            ListSettings = new List<SettingsViewModelBase>(new SettingsViewModelBase[] { ConnectionsServers, ProgramSettings });
             this.RaisePropertyChanged("ListSettings");
         }
 
@@ -35,6 +35,15 @@ namespace Tauridia.App.Views.Settings
             set => this.RaiseAndSetIfChanged(ref connectionsServers, value);
         }
 
+
+        private ProgramSettingsViewModel programSettings = new ProgramSettingsViewModel() { Name = "Программа" };
+
+        [DataMember]
+        public ProgramSettingsViewModel ProgramSettings
+        {
+            get => programSettings;
+            set => this.RaiseAndSetIfChanged(ref programSettings, value);
+        }
 
     }
 }

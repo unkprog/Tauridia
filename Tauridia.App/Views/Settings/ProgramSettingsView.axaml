@@ -1,0 +1,24 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Tauridia.App.Views.Settings.ProgramSettingsView">
+
+  <UserControl.Styles>
+    <Style Selector="TextBlock.label">
+      <Setter Property="VerticalAlignment" Value="Center"/>
+      <Setter Property="Margin" Value="5 0"/>
+    </Style>
+  </UserControl.Styles>
+
+  <ScrollViewer Padding="3" BorderThickness="1" BorderBrush="{Binding #lbConnections.BorderBrush}" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid ColumnDefinitions="Auto, 100*, Auto" RowDefinitions="Auto, Auto, Auto" DataContext="{Binding SelectedConnectionServer}">
+      <TextBlock Classes="label" Text="Тема оформления" />
+      <ComboBox Grid.Column="1" HorizontalAlignment="Left"
+                Items="{Binding ListThemes, Mode=TwoWay}" SelectedItem="{Binding Theme}" 
+                DataContext="{Binding $parent[UserControl].DataContext, Mode=OneWay}" 
+                Width="250" Margin="0 2" />
+    </Grid>
+  </ScrollViewer>
+</UserControl>

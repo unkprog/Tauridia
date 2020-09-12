@@ -22,7 +22,6 @@ namespace Tauridia.Core.Extensions
             return result;
         }
 
-
         public static void Write<T>(string path, T obj)
         {
             using (StreamWriter streamWriter = File.CreateText(path))
