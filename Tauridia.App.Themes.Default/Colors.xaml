@@ -1,0 +1,11 @@
+﻿<Style xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       >
+
+  <Style.Resources>
+    <Color x:Key="ThemeColorTitledControlHeader">#FF1E9DBF</Color>
+
+    <SolidColorBrush x:Key="ThemeBackgroundTitledControlHeader" Color="{DynamicResource ThemeColorTitledControlHeader}"></SolidColorBrush>
+
+  </Style.Resources>
+</Style>

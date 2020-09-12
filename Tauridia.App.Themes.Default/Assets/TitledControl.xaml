@@ -10,7 +10,7 @@
         <Border BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}">
           <Grid RowDefinitions="Auto,Auto,*" >
-            <Border Padding="3" Background="Silver">
+            <Border Padding="3" Background="{StaticResource ThemeBackgroundTitledControlHeader}">
               <Grid ColumnDefinitions="*,Auto, Auto">
                 <ContentPresenter Name="PART_HeaderPresenter"
                                   Background="{TemplateBinding HeaderBackground}"
