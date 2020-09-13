@@ -6,5 +6,16 @@ namespace Tauridia.App.Views
     [DataContract]
     public partial class LoginViewModel : ViewModelBase
     {
+
+        public void Ok()
+        {
+
+        }
+
+        public void Cancel()
+        {
+            MainWindowViewModel.This.CurrentContent = new ConnectViewModel();
+        }
+
     }
 }

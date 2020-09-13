@@ -11,6 +11,7 @@
     <Setter Property="VerticalAlignment" Value="Center"/>
     <Setter Property="FontSize" Value="22"/>
     <Setter Property="Margin" Value="3 0"/>
+    <Setter Property="Foreground" Value="White"/>
   </Style>
 
   <Style Selector="ctrl|TitledControl.stretch">

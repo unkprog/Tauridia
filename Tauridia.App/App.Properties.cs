@@ -5,5 +5,7 @@ namespace Tauridia.App
     public partial class App 
     {
         public static SettingsViewModel Settings { get; } = new SettingsViewModel();
+
+        //private readonly WebApi _webApi;
     }
 }

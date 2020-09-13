@@ -3,6 +3,12 @@
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaXaml Remove="Новая папка\**" />
+    <Compile Remove="Новая папка\**" />
+    <EmbeddedResource Remove="Новая папка\**" />
+    <None Remove="Новая папка\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-preview5" />
@@ -11,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="Новая папка\" />
   
   </ItemGroup>
 

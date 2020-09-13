@@ -18,7 +18,9 @@
       </Button>
     </StackPanel>
     
-    <ctrl:TitledControl Grid.RowSpan="2" Grid.Column="1" Width="600" Height="400">
+    <ctrl:TitledControl Grid.RowSpan="2" Grid.Column="1" Width="600" Height="400"
+                        IsVisibleOk="True"
+                         CommandOk="{Binding ConnectCommand}" >
       <ctrl:TitledControl.Header>
             <TextBlock Classes="headerLabel" Text="Подключение"/>
       </ctrl:TitledControl.Header>
