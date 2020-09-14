@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views
@@ -7,10 +8,17 @@ namespace Tauridia.App.Views
     public partial class LoginViewModel : ViewModelBase
     {
 
+        public void GetCurrentUser()
+        {
+            UserName = string.Concat(Environment.UserDomainName, "\\", Environment.UserName);
+            //Environment.
+        }
+
         public void Ok()
         {
-
         }
+
+   
 
         public void Cancel()
         {

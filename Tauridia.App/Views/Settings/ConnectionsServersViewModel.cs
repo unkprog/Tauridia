@@ -1,5 +1,4 @@
 ﻿using ReactiveUI;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Tauridia.Core.Models.Connection;
 

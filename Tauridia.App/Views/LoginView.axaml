@@ -8,7 +8,6 @@
   
   <ctrl:TitledControl Grid.RowSpan="2" Grid.Column="1"  
                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                      IsVisibleOk="True" IsVisibleCancel="True"
                       CommandOk="{Binding OkCommand}" CommandCancel="{Binding CancelCommand}" >
     <ctrl:TitledControl.Header>
       <TextBlock Classes="headerLabel" Text="Авторизация"/>
@@ -16,9 +15,11 @@
     <ctrl:TitledControl.Content>
       <Grid ColumnDefinitions="Auto" RowDefinitions="Auto, Auto">
         <TextBox Width="350" Margin="15 10" FontSize="16"
-                Watermark="Имя пользователя" VerticalAlignment="Bottom"
-                HorizontalContentAlignment="Center" />
-        <TextBox Grid.Row="1" Width="350" Margin="15 0 15 10"  FontSize="16" 
+                 
+                 Watermark="Имя пользователя" VerticalAlignment="Bottom"
+                 HorizontalContentAlignment="Center" />
+        <TextBox Grid.Row="1" Width="350" Margin="15 0 15 10"  FontSize="16"
+                
                  Watermark="Пароль" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"
                  PasswordChar="*"/>
       </Grid>

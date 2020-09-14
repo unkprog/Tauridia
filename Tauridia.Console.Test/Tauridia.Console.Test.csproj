@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Tauridia.App.Core\Tauridia.App.Core.csproj" />
     <ProjectReference Include="..\Tauridia.App\Tauridia.App.csproj" />
   </ItemGroup>
 
