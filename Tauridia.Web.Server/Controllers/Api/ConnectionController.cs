@@ -16,7 +16,7 @@ namespace Tauridia.Web.Server.Controllers.Api
         }
 
         [HttpGet]
-        public string Get()
+        public string CheckConnect()
         {
             return "Ok";
             //return this.TryCatch(() => { return "Ok"; }); ;

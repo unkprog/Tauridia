@@ -46,7 +46,7 @@ namespace Tauridia.App.Core.Net.Api
 
         public T Get<T>(string command)
         {
-            return Json.Get<T>(url, string.Concat(this.controller, "/", command), handler, OnError);
+            return Json.Get<T>(url, string.Concat(this.controller, command), handler, OnError);
         }
 
         public T Post<T, P>(string command, P data)

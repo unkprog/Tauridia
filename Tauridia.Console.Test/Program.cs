@@ -17,6 +17,8 @@ namespace Tauridia.Console.Test
             ConnectionsServersViewModel cn = new ConnectionsServersViewModel();
             Session session = new Session();
             session.ConnectionServer = cn.ListServers[0];
+            session.InitApi();
+            session.Connect();
             string str = session.Api.Get<string>("/connection");
 
             str = session.Api.Get<string>("/project");

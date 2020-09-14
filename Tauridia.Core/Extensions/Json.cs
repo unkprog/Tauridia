@@ -45,7 +45,7 @@ namespace Tauridia.Core.Extensions
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    response = await func.Invoke(client);
+                    response = await func.Invoke(client); //await
                     response.EnsureSuccessStatusCode();
 
                     if (response != null)
@@ -68,37 +68,38 @@ namespace Tauridia.Core.Extensions
             return getResult.Result;
         }
 
-        public static Task<TResult> PostAsync<TResult, TParam>(string server, string url, TParam data, HttpClientHandler handler = null, Action<Exception> onError = null)
+        public static async Task<TResult> PostAsync<TResult, TParam>(string server, string url, TParam data, HttpClientHandler handler = null, Action<Exception> onError = null)
         {
-            return HttpClientInvoke<TResult>(server, handler, onError, (client) =>
+            //return HttpClientInvoke<TResult>(server, handler, onError, (client) =>
+            //{
+            //    return client.PostAsJsonAsync(url, data); 
+            //});
+
+            TResult result = default(TResult);
+            HttpResponseMessage response = null;
+            try
             {
-                return client.PostAsJsonAsync(url, data); 
-            });
+                using (HttpClient client = (handler == null ? new HttpClient() : new HttpClient(handler)))
+                {
+                    client.BaseAddress = new Uri(server);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            //TResult result = default(TResult);
-            //HttpResponseMessage response = null;
-            //try
-            //{
-            //    using (HttpClient client = (handler == null ? new HttpClient() : new HttpClient(handler)))
-            //    {
-            //        client.BaseAddress = new Uri(server);
-            //        client.DefaultRequestHeaders.Accept.Clear();
-            //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            //        response = await client.PostAsJsonAsync(url, data);
-            //        response.EnsureSuccessStatusCode();
+                    response = await client.PostAsJsonAsync(url, data);
+                    response.EnsureSuccessStatusCode();
 
 
-            //        if (response != null)
-            //            result = await response.Content.ReadAsJsonAsync<TResult>();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(ex.Message);
-            //}
+                    if (response != null)
+                        result = await response.Content.ReadAsJsonAsync<TResult>();
+                }
+            }
+            catch (Exception ex)
+            {
+                onError?.Invoke(ex);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
 
-            //return result;
+            return result;
         }
 
         public static TResult Get<TResult>(string server, string url, HttpClientHandler handler = null, Action<Exception> onError = null)
@@ -108,32 +109,39 @@ namespace Tauridia.Core.Extensions
             return getResult.Result;
         }
 
-        public static Task<TResult> GetAsync<TResult>(string server, string url, HttpClientHandler handler = null, Action<Exception> onError = null)
+        public static async Task<TResult> GetAsync<TResult>(string server, string url, HttpClientHandler handler = null, Action<Exception> onError = null)
         {
-            return HttpClientInvoke<TResult>(server, handler, onError, (client) =>
-            {
-                return client.GetAsync(url);
-            });
-
-            //TResult result = default(TResult);
-            //HttpResponseMessage response = null;
-
-
-            //using (HttpClient client = (handler == null ? new HttpClient() : new HttpClient(handler)))
+            //return HttpClientInvoke<TResult>(server, handler, onError, (client) =>
             //{
-            //    client.BaseAddress = new Uri(server);
-            //    client.DefaultRequestHeaders.Accept.Clear();
-            //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            //    return client.GetAsync(url);
+            //});
 
-            //    response = await client.GetAsync(url);
-            //    response.EnsureSuccessStatusCode();
-            //}
+            TResult result = default(TResult);
+            HttpResponseMessage response = null;
+
+            try
+            {
+                using (HttpClient client = (handler == null ? new HttpClient() : new HttpClient(handler)))
+                {
+                    client.BaseAddress = new Uri(server);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    response = await client.GetAsync(url);
+                    response.EnsureSuccessStatusCode();
+                }
 
 
-            //if (response != null)
-            //    result = await response.Content.ReadAsJsonAsync<TResult>();
+                if (response != null)
+                    result = await response.Content.ReadAsJsonAsync<TResult>();
+            }
+            catch(Exception ex)
+            {
+                onError?.Invoke(ex);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
 
-            //return result;
+            return result;
         }
     }
 
