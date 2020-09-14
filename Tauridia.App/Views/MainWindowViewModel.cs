@@ -1,33 +1,21 @@
-﻿using System.Runtime.Serialization;
-using ReactiveUI;
+﻿using System;
 using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views
 {
-    public class MainWindowViewModel : ViewModelBase
+    public partial class MainWindowViewModel : ViewModelBase
     {
-        private static MainWindowViewModel _this = null;
-        public static MainWindowViewModel This
-        {
-            get { if (_this == null) _this = new MainWindowViewModel(); return _this; }
-            private set { _this = value; }
-        }
-
         public MainWindowViewModel()
         {
             _this = this;
             CurrentContent = new ConnectViewModel();
         }
 
-        private ViewModelBase _currentContent;
 
-        [DataMember]
-        public ViewModelBase CurrentContent
+        public void ShowError(Exception ex)
         {
-            get => _currentContent;
-            set => this.RaiseAndSetIfChanged(ref _currentContent, value);
-        }
 
+        }
 
     }
 

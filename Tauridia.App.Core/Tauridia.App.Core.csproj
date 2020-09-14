@@ -32,7 +32,10 @@
 
   <ItemGroup>
     <Folder Include="Assets\Fonts\" />
-    <Folder Include="Net\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tauridia.Core\Tauridia.Core.csproj" />
   </ItemGroup>
 
 </Project>

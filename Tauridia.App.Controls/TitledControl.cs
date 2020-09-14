@@ -25,11 +25,6 @@ namespace Tauridia.App.Controls
             ContentProperty.Changed.AddClassHandler<TitledControl>((x, e) => x.HeaderContentChanged(e));
         }
 
-        //public TitledControl()
-        //{
-        //    //BorderBrush = new SolidBrush(Color.Gray);
-        //    //BorderThickness = new Thickness(1);
-        //}
         public static readonly StyledProperty<object?> HeaderProperty = AvaloniaProperty.Register<TitledControl, object?>(nameof(Header));
         public object? Header
         {
@@ -70,7 +65,6 @@ namespace Tauridia.App.Controls
             set { SetValue(ContentProperty, value); }
         }
 
-
         public static readonly StyledProperty<IDataTemplate> ContentTemplateProperty = AvaloniaProperty.Register<TitledControl, IDataTemplate>(nameof(ContentTemplate));
         public IDataTemplate ContentTemplate
         {
@@ -90,7 +84,6 @@ namespace Tauridia.App.Controls
             get { return GetValue(HorizontalContentAlignmentProperty); }
             set { SetValue(HorizontalContentAlignmentProperty, value); }
         }
-
 
         public static readonly StyledProperty<VerticalAlignment> VerticalContentAlignmentProperty = AvaloniaProperty.Register<TitledControl, VerticalAlignment>(nameof(VerticalContentAlignment));
         public VerticalAlignment VerticalContentAlignment
@@ -134,7 +127,6 @@ namespace Tauridia.App.Controls
             }
         }
 
-
         public static readonly StyledProperty<bool> IsVisibleOkProperty = AvaloniaProperty.Register<TitledControl, bool>(nameof(IsVisibleOk));
         public bool IsVisibleOk
         {
@@ -163,59 +155,20 @@ namespace Tauridia.App.Controls
             remove { RemoveHandler(ClickCancelEvent, value); }
         }
 
-        //private Button _buttonOk, _buttonCancel;
-        //protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
-        //{
-        //    _buttonOk = e.NameScope.Find<Button>("PART_ButtonOk");
-        //    _buttonCancel = e.NameScope.Find<Button>("PART_ButtonCancel");
-            
-        //    base.OnApplyTemplate(e);
+        private ICommand? _commandOk, _commandCancel;
 
-        //}
-        private ICommand _commandOk, _commandCancel;
-        //private bool _commandOkCanExecute = true, _commandCancelCanExecute = true;
-
-        //protected override bool IsEnabledCore => base.IsEnabledCore && _commandOkCanExecute && _commandCancelCanExecute;
-
-        public static readonly DirectProperty<TitledControl, ICommand> CommandOkProperty = AvaloniaProperty.RegisterDirect<TitledControl, ICommand>(nameof(CommandOk), buttonOk => buttonOk.CommandOk, (buttonOk, commandOk) => buttonOk.CommandOk = commandOk, enableDataValidation: true);
-        public ICommand CommandOk
+        public static readonly DirectProperty<TitledControl, ICommand?> CommandOkProperty = AvaloniaProperty.RegisterDirect<TitledControl, ICommand?>(nameof(CommandOk), buttonOk => buttonOk.CommandOk, (buttonOk, commandOk) => buttonOk.CommandOk = commandOk, enableDataValidation: true);
+        public ICommand? CommandOk
         {
             get { return _commandOk; }
             set { SetAndRaise(CommandOkProperty, ref _commandOk, value);   }
         }
 
-        public static readonly DirectProperty<TitledControl, ICommand> CommandCancelProperty = AvaloniaProperty.RegisterDirect<TitledControl, ICommand>(nameof(CommandCancel), _buttonCancel => _buttonCancel.CommandCancel, (_buttonCancel, commandCancel) => _buttonCancel.CommandCancel = commandCancel, enableDataValidation: true);
-        public ICommand CommandCancel
+        public static readonly DirectProperty<TitledControl, ICommand?> CommandCancelProperty = AvaloniaProperty.RegisterDirect<TitledControl, ICommand?>(nameof(CommandCancel), _buttonCancel => _buttonCancel.CommandCancel, (_buttonCancel, commandCancel) => _buttonCancel.CommandCancel = commandCancel, enableDataValidation: true);
+        public ICommand? CommandCancel
         {
             get { return _commandCancel; }
             set { SetAndRaise(CommandCancelProperty, ref _commandCancel, value);  }
         }
-
-        //protected override void UpdateDataValidation<T>(AvaloniaProperty<T> property, BindingValue<T> value)
-        //{
-        //    base.UpdateDataValidation(property, value);
-        //    if (property == CommandOkProperty)
-        //    {
-        //        if (value.Type == BindingValueType.BindingError)
-        //        {
-        //            if (_commandOkCanExecute)
-        //            {
-        //                _commandOkCanExecute = false;
-        //                UpdateIsEffectivelyEnabled();
-        //            }
-        //        }
-        //    }
-        //    else if (property == CommandCancelProperty)
-        //    {
-        //        if (value.Type == BindingValueType.BindingError)
-        //        {
-        //            if (_commandCancelCanExecute)
-        //            {
-        //                _commandCancelCanExecute = false;
-        //                UpdateIsEffectivelyEnabled();
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

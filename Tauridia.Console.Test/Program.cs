@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using Tauridia.App;
 using Tauridia.App.Views;
 using Tauridia.App.Views.Settings;
 using Tauridia.Core.Extensions;
@@ -10,20 +11,32 @@ namespace Tauridia.Console.Test
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            LoginViewModel viewModel = new LoginViewModel();
-            viewModel.GetCurrentUser();
+            ConnectionsServersViewModel cn = new ConnectionsServersViewModel();
+            Session session = new Session();
+            session.ConnectionServer = cn.ListServers[0];
+            string str = session.Api.Get<string>("/connection");
 
-            using (HttpClientHandler handler = new HttpClientHandler() { UseDefaultCredentials = true })
-            {
-                handler.UseDefaultCredentials = false;
-                handler.Credentials = new NetworkCredential("usr5282797", "4dc3qnfA", "KROST");
-                //myHttpWebRequest.Credentials = CredentialCache.DefaultCredentials;
-                string result = Json.Get<string>("https://localhost:44331", "api/connection", handler);
-            }
-
+            str = session.Api.Get<string>("/project");
         }
+
+            
+        //static void Main(string[] args)
+        //{
+        //    LoginViewModel viewModel = new LoginViewModel();
+        //    viewModel.GetCurrentUser();
+
+        //    using (HttpClientHandler handler = new HttpClientHandler() { UseDefaultCredentials = true })
+        //    {
+        //        handler.UseDefaultCredentials = false;
+        //        handler.Credentials = new NetworkCredential("usr5282797", "4dc3qnfA", "KROST");
+        //        //myHttpWebRequest.Credentials = CredentialCache.DefaultCredentials;
+        //        string result = Json.Get<string>("https://localhost:44331", "api/connection", handler);
+        //    }
+
+        //}
         //    static void Main(string[] args)
         //{
         //    System.Console.WriteLine("Hello World!");

@@ -33,7 +33,7 @@ namespace Tauridia.Core.Extensions
             }
         }
 
-        internal static async Task<TResult> HttpClientInvoke<TResult>(string server, HttpClientHandler handler, Func<HttpClient, Task<HttpResponseMessage>> func)
+        internal static async Task<TResult> HttpClientInvoke<TResult>(string server, HttpClientHandler handler, Action<Exception> onError, Func<HttpClient, Task<HttpResponseMessage>> func)
         {
             TResult result = default(TResult);
             HttpResponseMessage response = null;
@@ -54,22 +54,23 @@ namespace Tauridia.Core.Extensions
             }
             catch (Exception ex)
             {
+                onError?.Invoke(ex);
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
 
             return result;
         }
 
-        public static TResult Post<TResult, TParam>(string server, string url, TParam data)
+        public static TResult Post<TResult, TParam>(string server, string url, TParam data, HttpClientHandler handler = null, Action<Exception> onError = null)
         {
-            Task<TResult> getResult = PostAsync<TResult, TParam>(server, url, data);
+            Task<TResult> getResult = PostAsync<TResult, TParam>(server, url, data, handler, onError);
             getResult.Wait();
             return getResult.Result;
         }
 
-        public static Task<TResult> PostAsync<TResult, TParam>(string server, string url, TParam data, HttpClientHandler handler = null)
+        public static Task<TResult> PostAsync<TResult, TParam>(string server, string url, TParam data, HttpClientHandler handler = null, Action<Exception> onError = null)
         {
-            return HttpClientInvoke<TResult>(server, handler, (client) =>
+            return HttpClientInvoke<TResult>(server, handler, onError, (client) =>
             {
                 return client.PostAsJsonAsync(url, data); 
             });
@@ -100,16 +101,16 @@ namespace Tauridia.Core.Extensions
             //return result;
         }
 
-        public static TResult Get<TResult>(string server, string url, HttpClientHandler handler = null)
+        public static TResult Get<TResult>(string server, string url, HttpClientHandler handler = null, Action<Exception> onError = null)
         {
-            Task<TResult> getResult = GetAsync<TResult>(server, url, handler);
+            Task<TResult> getResult = GetAsync<TResult>(server, url, handler, onError);
             getResult.Wait();
             return getResult.Result;
         }
 
-        public static Task<TResult> GetAsync<TResult>(string server, string url, HttpClientHandler handler = null)
+        public static Task<TResult> GetAsync<TResult>(string server, string url, HttpClientHandler handler = null, Action<Exception> onError = null)
         {
-            return HttpClientInvoke<TResult>(server, handler, (client) =>
+            return HttpClientInvoke<TResult>(server, handler, onError, (client) =>
             {
                 return client.GetAsync(url);
             });
