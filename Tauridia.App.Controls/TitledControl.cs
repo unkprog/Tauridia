@@ -101,14 +101,14 @@ namespace Tauridia.App.Controls
 
         protected virtual bool RegisterContentPresenter(IContentPresenter presenter)
         {
-            if (presenter.Name == "PART_ContentPresenter")
-            {
-                Presenter = presenter;
-                return true;
-            }
             if (presenter.Name == "PART_HeaderPresenter")
             {
                 HeaderPresenter = presenter;
+                return true;
+            }
+            if (presenter.Name == "PART_ContentPresenter")
+            {
+                Presenter = presenter;
                 return true;
             }
             return false;
