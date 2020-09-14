@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Tauridia.Web.Core;
+using Tauridia.Web.Core.Controllers;
 
 namespace Tauridia.Web.Server.Controllers.Api
 {
@@ -15,9 +16,10 @@ namespace Tauridia.Web.Server.Controllers.Api
         }
 
         [HttpGet]
-        public string CheckAuth()
+        public string Get()
         {
-            return Environment.UserDomainName;
+            return "Ok";
+            //return this.TryCatch(() => { return "Ok"; }); ;
         }
     }
 }

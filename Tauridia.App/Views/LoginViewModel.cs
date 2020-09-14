@@ -7,18 +7,17 @@ namespace Tauridia.App.Views
     [DataContract]
     public partial class LoginViewModel : ViewModelBase
     {
-
-        public void GetCurrentUser()
+        public void Login()
         {
-            UserName = string.Concat(Environment.UserDomainName, "\\", Environment.UserName);
-            //Environment.
+            if (string.IsNullOrEmpty(UserName))
+            {
+                MainWindowViewModel.This.NotifyError("Укажите имя пользователя");
+                return;
+            }
+
         }
 
-        public void Ok()
-        {
-        }
 
-   
 
         public void Cancel()
         {

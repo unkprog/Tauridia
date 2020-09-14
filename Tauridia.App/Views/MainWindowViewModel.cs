@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Avalonia.Controls.Notifications;
+using System;
 using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views
@@ -11,10 +12,22 @@ namespace Tauridia.App.Views
             CurrentContent = new ConnectViewModel();
         }
 
-
-        public void ShowError(Exception ex)
+        public void NotifyError(Exception ex)
         {
+            if (_notificationManager != null)
+                _notificationManager.Show(new Notification("Ошибка", ex.Message, NotificationType.Error));
+        }
 
+        public void NotifyError(string message)
+        {
+            if (_notificationManager != null)
+                _notificationManager.Show(new Notification("Ошибка", message, NotificationType.Error));
+        }
+
+        public void NotifyInfo(string message)
+        {
+            if (_notificationManager != null)
+                _notificationManager.Show(new Notification("Инфо", message, NotificationType.Information));
         }
 
     }

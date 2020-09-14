@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using Tauridia.App.Core.Net.Api;
 using Tauridia.App.Views;
 using Tauridia.Core;
@@ -14,13 +15,13 @@ namespace Tauridia.App
         public ConnectionServer ConnectionServer
         {
             get => _connectionServer;
-            set { _connectionServer = value; InitApi(); }
+            set { _connectionServer = value; }
         }
 
 
         public ApiController Api { get; private set; } = null;
 
-        private void InitApi()
+        public void InitApi()
         {
             DisposeApi();
             if (ConnectionServer != null)
@@ -31,12 +32,21 @@ namespace Tauridia.App
             }
         }
 
-        private void Api_OnException(object sender, System.Exception e)
+        public void Connect()
+        {
+            string str = Api.Get<string>("/connection");
+            if(str == "Ok")
+                MainWindowViewModel.This.CurrentContent = new StartViewModel();
+            else
+                MainWindowViewModel.This.CurrentContent = new LoginViewModel();
+        }
+
+        private void Api_OnException(object sender, Exception e)
         {
             if (e.HResult == -2146233088)
                 MainWindowViewModel.This.CurrentContent = new LoginViewModel();
             else
-                MainWindowViewModel.This.ShowError(e);
+                MainWindowViewModel.This.NotifyError(e);
         }
 
         protected override void Dispose(bool disposing)

@@ -16,11 +16,11 @@
     <ctrl:TitledControl.Content>
       <Grid ColumnDefinitions="Auto" RowDefinitions="Auto, Auto">
         <TextBox Width="350" Margin="15 10" FontSize="16"
-                 
+                 Text="{Binding UserName, Mode=TwoWay}"
                  Watermark="Имя пользователя" VerticalAlignment="Bottom"
                  HorizontalContentAlignment="Center" />
         <TextBox Grid.Row="1" Width="350" Margin="15 0 15 10"  FontSize="16"
-                
+                 Text="{Binding Password, Mode=TwoWay}"
                  Watermark="Пароль" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"
                  PasswordChar="*"/>
       </Grid>

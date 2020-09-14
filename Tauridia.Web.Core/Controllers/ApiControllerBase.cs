@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace Tauridia.Web.Core
 {
@@ -14,5 +15,11 @@ namespace Tauridia.Web.Core
         {
             _logger = logger;
         }
+
+        public void WriteError(Exception ex)
+        {
+            _logger?.Log(LogLevel.Error, ex.Message);
+        }
+
     }
 }

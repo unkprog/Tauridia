@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Notifications;
 using Avalonia.Markup.Xaml;
 using Tauridia.Core.Managers;
 using Tauridia.Core.Models.Project;
@@ -11,16 +12,28 @@ namespace Tauridia.App.Views
         public MainWindow()
         {
             InitializeComponent();
-//#if DEBUG
-//            this.AttachDevTools();
-//#endif
+            this.DataContextChanged += MainWindow_DataContextChanged;
+        }
+
+        private void MainWindow_DataContextChanged(object sender, System.EventArgs e)
+        {
+            if (this.DataContext == null)
+                return;
+
+            ((MainWindowViewModel)this.DataContext)._notificationManager = new WindowNotificationManager(this)
+            {
+                Position = NotificationPosition.TopRight,
+                MaxItems = 3
+            };
         }
 
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
 
-           // Button button = this.FindControl<Button>("TestButton");
+            
+
+            // Button button = this.FindControl<Button>("TestButton");
 
             //button.Click += (o, e) =>
             //{
