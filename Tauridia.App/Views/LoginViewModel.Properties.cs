@@ -11,7 +11,6 @@ namespace Tauridia.App.Views
         public string UserName { get => userName; set => this.RaiseAndSetIfChanged(ref userName, value); }
 
         private string password;
-
         [DataMember]
         public string Password { get => password; set => this.RaiseAndSetIfChanged(ref password, value); }
     }

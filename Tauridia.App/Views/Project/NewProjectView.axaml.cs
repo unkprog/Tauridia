@@ -1,11 +1,11 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace Tauridia.App.Views
+namespace Tauridia.App.Views.Project
 {
-    public class StartView : UserControl
+    public class NewProjectView : UserControl
     {
-        public StartView()
+        public NewProjectView()
         {
             this.InitializeComponent();
         }

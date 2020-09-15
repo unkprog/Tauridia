@@ -10,5 +10,11 @@
     <ProjectReference Include="..\Tauridia.Web.Core\Tauridia.Web.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>

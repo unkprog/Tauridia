@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ctrl="clr-namespace:Tauridia.App.Controls;assembly=Tauridia.App.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tauridia.App.Views.StartView">
 
@@ -17,20 +18,29 @@
       <Setter Property="TextAlignment" Value="Center"/>
     </Style>
   </UserControl.Styles>
-  <Grid ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto,Auto" VerticalAlignment="Center" HorizontalAlignment="Center">
-    <TextBlock Grid.ColumnSpan="2" Text="Начало работы" Classes="headerLabelBlack" Margin="15"/>
 
-    <Button Classes="beginBtn" Grid.Row="1" Command="{Binding OpenProjectCommand}" >
-      <TextBlock Classes="beginBtn" Text="Открытие проекта" />
-    </Button>
-    <Button Classes="beginBtn" Grid.Row="2" Command="{Binding CreateProjectCommand}" >
-      <TextBlock Classes="beginBtn" Text="Создание проекта" />
-    </Button>
-    <Button  Classes="beginBtn" Grid.Row="1" Grid.Column="1" Command="{Binding OpenInfobaseCommand}" >
-      <TextBlock Classes="beginBtn" Text="Открытие инф. базы" />
-    </Button>
-    <Button Classes="beginBtn" Grid.Row="2" Grid.Column="1" Command="{Binding CreateInfobaseCommand}" >
-      <TextBlock Classes="beginBtn" Text="Создание инф. базы" />
-    </Button>
-  </Grid>
+  <ctrl:TitledControl Grid.RowSpan="2" Grid.Column="1"
+                      HorizontalAlignment="Center" VerticalAlignment="Center"
+                      IsVisibleCancel="True" CommandCancel="{Binding CancelCommand}" >
+    <ctrl:TitledControl.Header>
+      <TextBlock Classes="headerLabel" Text="Начало работы"/>
+    </ctrl:TitledControl.Header>
+    <ctrl:TitledControl.Content>
+      <Grid ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto,Auto" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50 30">
+
+        <Button Classes="beginBtn" Grid.Row="1" Command="{Binding OpenProjectCommand}" >
+          <TextBlock Classes="beginBtn" Text="Открытие проекта" />
+        </Button>
+        <Button Classes="beginBtn" Grid.Row="2" Command="{Binding CreateProjectCommand}" >
+          <TextBlock Classes="beginBtn" Text="Создание проекта" />
+        </Button>
+        <Button  Classes="beginBtn" Grid.Row="1" Grid.Column="1" Command="{Binding OpenInfobaseCommand}" >
+          <TextBlock Classes="beginBtn" Text="Открытие инф. базы" />
+        </Button>
+        <Button Classes="beginBtn" Grid.Row="2" Grid.Column="1" Command="{Binding CreateInfobaseCommand}" >
+          <TextBlock Classes="beginBtn" Text="Создание инф. базы" />
+        </Button>
+      </Grid>
+    </ctrl:TitledControl.Content>
+  </ctrl:TitledControl>
 </UserControl>
