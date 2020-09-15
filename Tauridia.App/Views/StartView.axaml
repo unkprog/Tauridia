@@ -5,10 +5,32 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tauridia.App.Views.StartView">
 
-  <Grid ColumnDefinitions="Auto,Auto,Auto" RowDefinitions="Auto,Auto">
-    <TextBlock Grid.ColumnSpan="2" Text="Начало работы" />
+  <UserControl.Styles>
+    <Style Selector="Button.beginBtn">
+      <Setter Property="Margin" Value="5"/>
+      <Setter Property="Width" Value="250"/>
+      <Setter Property="Height" Value="75"/>
+    </Style>
+    <Style Selector="TextBlock.beginBtn">
+      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="TextWrapping" Value="Wrap"/>
+      <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
+  </UserControl.Styles>
+  <Grid ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto,Auto" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <TextBlock Grid.ColumnSpan="2" Text="Начало работы" Classes="headerLabelBlack" Margin="15"/>
 
-    <Button Grid.Row="1" Content="Открытие проекта" Width="200" Height="50" />
-    <Button Grid.Row="1" Content="Создание проекта" Width="200" Height="50" />
+    <Button Classes="beginBtn" Grid.Row="1" Command="{Binding OpenProjectCommand}" >
+      <TextBlock Classes="beginBtn" Text="Открытие проекта" />
+    </Button>
+    <Button Classes="beginBtn" Grid.Row="2" Command="{Binding CreateProjectCommand}" >
+      <TextBlock Classes="beginBtn" Text="Создание проекта" />
+    </Button>
+    <Button  Classes="beginBtn" Grid.Row="1" Grid.Column="1" Command="{Binding OpenInfobaseCommand}" >
+      <TextBlock Classes="beginBtn" Text="Открытие инф. базы" />
+    </Button>
+    <Button Classes="beginBtn" Grid.Row="2" Grid.Column="1" Command="{Binding CreateInfobaseCommand}" >
+      <TextBlock Classes="beginBtn" Text="Создание инф. базы" />
+    </Button>
   </Grid>
 </UserControl>
