@@ -10,9 +10,9 @@ namespace Tauridia.App.Views
         [DataMember]
         public string UserName { get => userName; set => this.RaiseAndSetIfChanged(ref userName, value); }
 
-        private SecureString password;
+        private string password;
 
         [DataMember]
-        public SecureString Password { get => password; set => this.RaiseAndSetIfChanged(ref password, value); }
+        public string Password { get => password; set => this.RaiseAndSetIfChanged(ref password, value); }
     }
 }

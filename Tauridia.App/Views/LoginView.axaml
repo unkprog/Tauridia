@@ -9,7 +9,7 @@
   <ctrl:TitledControl Grid.RowSpan="2" Grid.Column="1"  
                       HorizontalAlignment="Center" VerticalAlignment="Center"
                       IsVisibleOk="True" IsVisibleCancel="True"
-                      CommandOk="{Binding OkCommand}" CommandCancel="{Binding CancelCommand}" >
+                      CommandOk="{Binding LoginCommand}" CommandCancel="{Binding CancelCommand}" >
     <ctrl:TitledControl.Header>
       <TextBlock Classes="headerLabel" Text="Авторизация"/>
     </ctrl:TitledControl.Header>

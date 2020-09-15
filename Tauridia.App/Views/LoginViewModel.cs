@@ -17,8 +17,6 @@ namespace Tauridia.App.Views
 
         }
 
-
-
         public void Cancel()
         {
             MainWindowViewModel.This.CurrentContent = new ConnectViewModel();

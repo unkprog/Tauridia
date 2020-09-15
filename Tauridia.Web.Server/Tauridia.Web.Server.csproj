@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Utf8Json.AspNetCoreMvcFormatter" Version="1.3.7" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Tauridia.Core\Tauridia.Core.csproj" />
     <ProjectReference Include="..\Tauridia.Web.Core\Tauridia.Web.Core.csproj" />
   </ItemGroup>

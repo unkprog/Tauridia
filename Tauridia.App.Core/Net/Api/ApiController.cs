@@ -51,7 +51,7 @@ namespace Tauridia.App.Core.Net.Api
 
         public T Post<T, P>(string command, P data)
         {
-            return Json.Post<T, P>(url, string.Concat(this.controller, "/", command), data, handler, OnError);
+            return Json.Post<T, P>(url, string.Concat(this.controller, command), data, handler, OnError);
         }
 
         private void OnError(Exception exception)
