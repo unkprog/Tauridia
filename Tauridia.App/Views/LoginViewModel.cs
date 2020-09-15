@@ -14,7 +14,8 @@ namespace Tauridia.App.Views
                 MainWindowViewModel.This.NotifyError("Укажите имя пользователя");
                 return;
             }
-
+            App.Session.Api.UseCredentials(UserName, Password, null);
+            App.Session.Connect();
         }
 
         public void Cancel()

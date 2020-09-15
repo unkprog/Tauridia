@@ -29,6 +29,12 @@
     <Compile Update="Views\MainWindowViewModel.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\MainWindowViewModel.Properties.cs">
+      <DependentUpon>MainWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MainWindowViewModel.Commands.cs">
+      <DependentUpon>MainWindow.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Settings\ProgramSettingsView.axaml.cs">
       <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
     </Compile>

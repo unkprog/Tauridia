@@ -27,7 +27,6 @@ namespace Tauridia.App
             if (ConnectionServer != null)
             {
                 Api = new ApiController(ConnectionServer.Url, "/api");
-
                 Api.OnException += Api_OnException;
             }
         }
@@ -39,6 +38,11 @@ namespace Tauridia.App
                 MainWindowViewModel.This.CurrentContent = new StartViewModel();
             else
                 MainWindowViewModel.This.CurrentContent = new LoginViewModel();
+        }
+
+        public void Disconnect()
+        {
+            MainWindowViewModel.This.CurrentContent = new ConnectViewModel();
         }
 
         private void Api_OnException(object sender, Exception e)

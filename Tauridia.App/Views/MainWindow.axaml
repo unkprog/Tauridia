@@ -12,14 +12,17 @@
     <!--<Design.DataContext>
       <v:MainVindowViewModel/>
     </Design.DataContext>-->
+  <Grid ColumnDefinitions="*" RowDefinitions="*">
+    <ContentControl Content="{Binding CurrentContent, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
-  <ContentControl Content="{Binding CurrentContent, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-    <!--<ContentControl.DataTemplates>
 
-      <DataTemplate DataType="{x:Type vmwelcome:ViewModel}">
-        <views:Welcome DataContext="{Binding}" />
-      </DataTemplate>
-    </ContentControl.DataTemplates>-->
-  </ContentControl>
-  
+    <!--<StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
+      <Button Margin="4" Command="{Binding ExitCommand}" Width="36" Height="36">
+        <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.settings.png?assembly=Tauridia.App.Core"/>
+      </Button>
+      <Button  Margin="0 4" Command="{Binding AboutCommand}" Width="36" Height="36">
+        <Image Source="resm:Tauridia.App.Core.Assets.Icons.Png.help.png?assembly=Tauridia.App.Core"/>
+      </Button>
+    </StackPanel>-->
+  </Grid>
 </Window>

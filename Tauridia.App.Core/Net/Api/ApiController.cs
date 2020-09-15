@@ -12,6 +12,7 @@ namespace Tauridia.App.Core.Net.Api
         {
             this.url = url;
             this.controller = controller;
+            UseDefaultCredentials();
         }
 
         private string url, controller;
