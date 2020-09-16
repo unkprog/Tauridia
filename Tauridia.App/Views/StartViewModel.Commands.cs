@@ -1,7 +1,6 @@
 ﻿using ReactiveUI;
 using System.Reactive;
 using System.Runtime.Serialization;
-using Tauridia.App.Views.Project;
 
 namespace Tauridia.App.Views
 {

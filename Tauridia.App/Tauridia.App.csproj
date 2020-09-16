@@ -95,5 +95,32 @@
     <Compile Update="Views\LoginViewModel.Commands.cs">
       <DependentUpon>LoginView.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\StartViewModel.cs">
+      <DependentUpon>StartView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StartViewModel.Properties.cs">
+      <DependentUpon>StartView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StartViewModel.Commands.cs">
+      <DependentUpon>StartView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Project\NewProjectViewModel.cs">
+      <DependentUpon>NewProjectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Project\NewProjectViewModel.Properties.cs">
+      <DependentUpon>NewProjectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Project\NewProjectViewModel.Commands.cs">
+      <DependentUpon>NewProjectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Project\ProjectViewModel.cs">
+      <DependentUpon>ProjectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Project\ProjectViewModel.Properties.cs">
+      <DependentUpon>ProjectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Project\ProjectViewModel.Commands.cs">
+      <DependentUpon>ProjectView.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -6,8 +6,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tauridia.App.Views.LoginView">
   
-  <ctrl:TitledControl Grid.RowSpan="2" Grid.Column="1"  
-                      HorizontalAlignment="Center" VerticalAlignment="Center"
+  <ctrl:TitledControl HorizontalAlignment="Center" VerticalAlignment="Center"
                       IsVisibleOk="True" IsVisibleCancel="True"
                       CommandOk="{Binding LoginCommand}" CommandCancel="{Binding CancelCommand}" >
     <ctrl:TitledControl.Header>

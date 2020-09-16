@@ -2,7 +2,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ctrl="clr-namespace:Tauridia.App.Controls;assembly=Tauridia.App.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Tauridia.App.Views.Project.NewProjectView">
-    Welcome to Avalonia!
+             x:Class="Tauridia.App.Views.NewProjectView">
+
+  <ctrl:TitledControl HorizontalAlignment="Center" VerticalAlignment="Center"
+                      IsVisibleOk="True" IsVisibleCancel="True"
+                      CommandOk="{Binding CreateCommand}" CommandCancel="{Binding CancelCommand}" >
+    <ctrl:TitledControl.Header>
+      <TextBlock Classes="headerLabel" Text="Создание проекта"/>
+    </ctrl:TitledControl.Header>
+    <ctrl:TitledControl.Content>
+      <Grid ColumnDefinitions="Auto, 100*" RowDefinitions="Auto, Auto" Margin="5">
+        <TextBlock Classes="label" Text="Имя проекта" />
+        <TextBox Grid.Column="1" Text="{Binding Project.Name, Mode=TwoWay}" Margin="0 2" Width="300"  />
+        <TextBlock Grid.Row="1" Classes="label" Text="Описание" VerticalAlignment="Top" Margin="5" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Project.Description, Mode=TwoWay}" Margin="0 2" AcceptsTab="True" AcceptsReturn="True" Height="150"/>
+      </Grid>
+    </ctrl:TitledControl.Content>
+  </ctrl:TitledControl>
+
 </UserControl>

@@ -9,15 +9,12 @@ namespace Tauridia.App
 {
     public class Session : Disposable
     {
-        public HttpClientHandler ClientHandler { get; set; } = new HttpClientHandler() { UseDefaultCredentials = true };
-
         public ConnectionServer _connectionServer = null;
         public ConnectionServer ConnectionServer
         {
             get => _connectionServer;
             set { _connectionServer = value; }
         }
-
 
         public ApiController Api { get; private set; } = null;
 
@@ -31,6 +28,15 @@ namespace Tauridia.App
             }
         }
 
+        private void Api_OnException(object sender, Exception e)
+        {
+            if (e.HResult == -2146233088)
+                MainWindowViewModel.This.CurrentContent = new LoginViewModel();
+            else
+                MainWindowViewModel.This.NotifyError(e);
+        }
+
+#region Connection
         public void Connect()
         {
             string str = Api.Get<string>("/connection");
@@ -45,14 +51,9 @@ namespace Tauridia.App
             MainWindowViewModel.This.CurrentContent = new ConnectViewModel();
         }
 
-        private void Api_OnException(object sender, Exception e)
-        {
-            if (e.HResult == -2146233088)
-                MainWindowViewModel.This.CurrentContent = new LoginViewModel();
-            else
-                MainWindowViewModel.This.NotifyError(e);
-        }
+#endregion
 
+#region IDisposable
         protected override void Dispose(bool disposing)
         {
             if(disposing)
@@ -72,5 +73,7 @@ namespace Tauridia.App
                 Api = null;
             }
         }
+#endregion
+
     }
 }

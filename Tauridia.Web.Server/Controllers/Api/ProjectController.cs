@@ -20,5 +20,13 @@ namespace Tauridia.Web.Server.Controllers.Api
         {
             return new ProjectManager().ListProjects();
         }
+
+
+        [HttpPost]
+        public string Create(Project project)
+        {
+            new ProjectManager().Save(project);
+            return "Ok";
+        }
     }
 }

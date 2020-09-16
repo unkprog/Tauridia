@@ -20,6 +20,11 @@
     <Setter Property="Margin" Value="3 0"/>
     <Setter Property="Foreground" Value="Black"/>
   </Style>
+
+  <Style Selector="TextBlock.label">
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="5 0"/>
+  </Style>
   
   <Style Selector="ctrl|TitledControl.stretch">
     <Setter Property="BorderBrush" Value="Gray"/>
