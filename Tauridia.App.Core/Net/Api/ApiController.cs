@@ -16,43 +16,40 @@ namespace Tauridia.App.Core.Net.Api
         }
 
         private string url, controller;
-        private HttpClientHandler handler = null;
+        //private HttpClientHandler handler = null;
 
         public event EventHandler<Exception> OnException;
 
         public void EmptyCredentials()
         {
-            DisposeHandler();
+            getHandler = () => null;
         }
 
+        Func<HttpClientHandler> getHandler = null;
         public void UseDefaultCredentials()
         {
-            DisposeHandler();
-            handler = new HttpClientHandler() { UseDefaultCredentials = true };
+            getHandler = () => new HttpClientHandler() { UseDefaultCredentials = true };
         }
+
 
         public void UseCredentials(string userName, string password, string domain)
         {
-            DisposeHandler();
-            handler = new HttpClientHandler() { Credentials = new NetworkCredential(userName, password, domain) };
+            getHandler = () => new HttpClientHandler() { Credentials = new NetworkCredential(userName, password, domain) };
         }
 
         private void DisposeHandler()
         {
-            if (handler != null)
-                handler.Dispose();
-
-            handler = null;
+            getHandler = null;
         }
 
         public T Get<T>(string command)
         {
-            return Json.Get<T>(url, string.Concat(this.controller, command), handler, OnError);
+            return Json.Get<T>(url, string.Concat(this.controller, command), getHandler?.Invoke(), OnError);
         }
 
         public T Post<T, P>(string command, P data)
         {
-            return Json.Post<T, P>(url, string.Concat(this.controller, command), data, handler, OnError);
+            return Json.Post<T, P>(url, string.Concat(this.controller, command), data, getHandler?.Invoke(), OnError);
         }
 
         private void OnError(Exception exception)

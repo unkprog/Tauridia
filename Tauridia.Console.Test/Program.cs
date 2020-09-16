@@ -5,13 +5,13 @@ using Tauridia.App;
 using Tauridia.App.Views;
 using Tauridia.App.Views.Settings;
 using Tauridia.Core.Extensions;
+using Tauridia.Core.Models.Project;
 using Utf8Json;
 
 namespace Tauridia.Console.Test
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             ConnectionsServersViewModel cn = new ConnectionsServersViewModel();
@@ -19,12 +19,23 @@ namespace Tauridia.Console.Test
             session.ConnectionServer = cn.ListServers[0];
             session.InitApi();
             session.Connect();
-            string str = session.Api.Get<string>("/connection");
+            string str = session.Api.Post<string, Project>("/project/Create", new Project() { Name = "ТестовыйПроект" });
 
-            str = session.Api.Get<string>("/project");
+            //str = session.Api.Get<string>("/project");
         }
+        //static void Main(string[] args)
+        //{
+        //    ConnectionsServersViewModel cn = new ConnectionsServersViewModel();
+        //    Session session = new Session();
+        //    session.ConnectionServer = cn.ListServers[0];
+        //    session.InitApi();
+        //    session.Connect();
+        //    string str = session.Api.Get<string>("/connection");
 
-            
+        //    str = session.Api.Get<string>("/project");
+        //}
+
+
         //static void Main(string[] args)
         //{
         //    LoginViewModel viewModel = new LoginViewModel();

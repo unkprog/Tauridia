@@ -7,7 +7,7 @@ using Tauridia.Web.Core;
 
 namespace Tauridia.Web.Server.Controllers.Api
 {
-    [Route("api/[controller]")]
+    [Route("api/project")]
     [ApiController]
     public class ProjectController : ApiControllerBase<ProjectController>
     {
@@ -23,7 +23,7 @@ namespace Tauridia.Web.Server.Controllers.Api
 
 
         [HttpPost]
-        public string Create(Project project)
+        public string Create([FromBody] Project project)
         {
             new ProjectManager().Save(project);
             return "Ok";
