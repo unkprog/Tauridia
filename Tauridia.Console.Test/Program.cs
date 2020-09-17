@@ -14,34 +14,34 @@ namespace Tauridia.Console.Test
 {
     class Program
     {
-        static async Task Main(string[] args)
-        {
+        //static async Task Main(string[] args)
+        //{
 
 
-            using (HttpClientHandler handler = new HttpClientHandler() { UseDefaultCredentials = true })
-            {
-                handler.UseDefaultCredentials = false;
-                handler.Credentials = new NetworkCredential("usr5282797", "4dc3qnfA", "KROST");
+        //    using (HttpClientHandler handler = new HttpClientHandler() { UseDefaultCredentials = true })
+        //    {
+        //        handler.UseDefaultCredentials = false;
+        //        handler.Credentials = new NetworkCredential("usr5282797", "4dc3qnfA", "KROST");
 
-                using (HttpClient client = (handler == null ? new HttpClient() : new HttpClient(handler)))
-                {
-                    client.BaseAddress = new Uri("https://localhost:44331");
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //        using (HttpClient client = (handler == null ? new HttpClient() : new HttpClient(handler)))
+        //        {
+        //            client.BaseAddress = new Uri("https://localhost:44331");
+        //            client.DefaultRequestHeaders.Accept.Clear();
+        //            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    var res1 = await client.GetAsync("api/connection");
-                    var sss = JsonSerializer.ToJsonString(new Project() { Name = "ТестовыйПроект", Description = "Description" });
-                    var res2 = await client.PostAsJsonAsync("api/project/create", new Project() { Name = "ТестовыйПроект", Description = "Description" });
-
-
-                    //string result = Json.Get<string>("https://localhost:44331", "api/connection", handler);
-                    //string str = Json.Post<string, Project>("https://localhost:44331", "/project/create", new Project() { Name = "ТестовыйПроект", Description = "Description" }, handler);
-                }
-            
-            }
+        //            var res1 = await client.GetAsync("api/connection");
+        //            var sss = JsonSerializer.ToJsonString(new Project() { Name = "ТестовыйПроект", Description = "Description" });
+        //            var res2 = await client.PostAsJsonAsync("api/project/create", new Project() { Name = "ТестовыйПроект", Description = "Description" });
 
 
-        }
+        //            //string result = Json.Get<string>("https://localhost:44331", "api/connection", handler);
+        //            //string str = Json.Post<string, Project>("https://localhost:44331", "/project/create", new Project() { Name = "ТестовыйПроект", Description = "Description" }, handler);
+        //        }
+
+        //    }
+
+
+        //}
 
         //internal static async Task<TResult> HttpClientInvoke<TResult>(string server, HttpClientHandler handler, Action<Exception> onError, Func<HttpClient, Task<HttpResponseMessage>> func)
         //{
@@ -55,7 +55,7 @@ namespace Tauridia.Console.Test
         //            client.DefaultRequestHeaders.Accept.Clear();
         //            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    
+
         //            response = await func.Invoke(client);
         //            response.EnsureSuccessStatusCode();
 
@@ -72,19 +72,20 @@ namespace Tauridia.Console.Test
         //    return result;
         //}
 
-        //static void Main(string[] args)
-        //{
-        //    ConnectionsServersViewModel cn = new ConnectionsServersViewModel();
-        //    Session session = new Session();
-        //    session.ConnectionServer = cn.ListServers[0];
-        //    session.InitApi();
-        //    session.Connect();
-        //    session.Api.UseCredentials("usr5282797", "4dc3qnfA", "KROST");
-        //    string str = session.Api.Post<string, Project>("/project/create", new Project() { Name = "ТестовыйПроект", Description= "Description" });
-        //    //string str = session.Api.Post<string, Project>("/project/create", new Project() { Name = "ТестовыйПроект" });
+        static void Main(string[] args)
+        {
+            ConnectionsServersViewModel cn = new ConnectionsServersViewModel();
+            Session session = new Session();
+            session.ConnectionServer = cn.ListServers[0];
+            session.InitApi();
+            session.Connect();
+            //session.Api.UseCredentials("usr5282797", "4dc3qnfA", "KROST");
+            string str1 = session.Api.Get<string>("/project");
+            string str = session.Api.Post<string, Project>("/project/create", new Project() { Name = "ТестовыйПроект", Description = "Description" });
+            //string str = session.Api.Post<string, Project>("/project/create", new Project() { Name = "ТестовыйПроект" });
 
-        //    //str = session.Api.Get<string>("/project");
-        //}
+            //str = session.Api.Get<string>("/project");
+        }
 
         //static void Main(string[] args)
         //{
