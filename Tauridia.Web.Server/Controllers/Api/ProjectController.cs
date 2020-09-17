@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Tauridia.Core.Managers;
 using Tauridia.Core.Models.Project;
 using Tauridia.Web.Core;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Tauridia.Web.Server.Controllers.Api
 {
-    [Route("api/project")]
-    [ApiController]
+    [Route("api/[controller]/[action]")]
     public class ProjectController : ApiControllerBase<ProjectController>
     {
         public ProjectController(ILogger<ProjectController> logger) : base(logger)
@@ -23,6 +23,9 @@ namespace Tauridia.Web.Server.Controllers.Api
 
 
         [HttpPost]
+        [Route("api/project/create")]
+        [AllowAnonymous]
+        [Produces("application/json")]
         public string Create([FromBody] Project project)
         {
             new ProjectManager().Save(project);

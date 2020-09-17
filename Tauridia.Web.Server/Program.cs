@@ -13,6 +13,7 @@ namespace Tauridia.Web.Server
     {
         public static void Main(string[] args)
         {
+            AppContext.SetSwitch("System.Net.Http.UseSocketsHttpHandler", false);
             CreateHostBuilder(args).Build().Run();
         }
 

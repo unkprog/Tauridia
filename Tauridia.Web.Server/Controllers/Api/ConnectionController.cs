@@ -21,5 +21,12 @@ namespace Tauridia.Web.Server.Controllers.Api
             return "Ok";
             //return this.TryCatch(() => { return "Ok"; }); ;
         }
+
+        //[HttpPost]
+        //public string CheckConnect()
+        //{
+        //    return "Ok";
+        //    //return this.TryCatch(() => { return "Ok"; }); ;
+        //}
     }
 }
