@@ -6,6 +6,9 @@ using Tauridia.Core.Models.Project;
 using Tauridia.Web.Core;
 using Microsoft.AspNetCore.Authorization;
 using System.Net.Http;
+using Tauridia.Core.Http;
+using Tauridia.Web.Core.Controllers;
+using System;
 
 namespace Tauridia.Web.Server.Controllers.Api
 {
@@ -17,17 +20,24 @@ namespace Tauridia.Web.Server.Controllers.Api
         }
 
         [HttpGet]
-        public IEnumerable<Project> Get()
+        public HttpMessage<IEnumerable<Project>> Get()
         {
-            return new ProjectManager().ListProjects();
+            return this.TryCatch<ProjectController, IEnumerable<Project>>(() =>
+            {
+                return new ProjectManager().ListProjects();
+            });
         }
 
         [HttpPost]
         [Route("create")]
-        public IEnumerable<Project> Create([FromBody] Project project)
+        public HttpMessage<IEnumerable<Project>> Create([FromBody] Project project)
         {
-            new ProjectManager().Save(project);
-            return Get();
+            return this.TryCatch(() =>
+            {
+                new ProjectManager().Save(project);
+                return Get().Data;
+            });
+           
         }
     }
 }

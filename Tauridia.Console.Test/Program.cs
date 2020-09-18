@@ -8,6 +8,7 @@ using Tauridia.App;
 using Tauridia.App.Views;
 using Tauridia.App.Views.Settings;
 using Tauridia.Core.Extensions;
+using Tauridia.Core.Http;
 using Tauridia.Core.Models.Project;
 using Utf8Json;
 
@@ -81,8 +82,8 @@ namespace Tauridia.Console.Test
             session.InitApi();
             session.Connect();
             //session.Api.UseCredentials("usr5282797", "4dc3qnfA", "KROST");
-            List<Project> str1 = session.Api.Get<List<Project>>("/project");
-            List<Project> str = session.Api.Post<List<Project>, Project>("/project/create", new Project() { Name = "ТестовыйПроект", Description = "Description" });
+            HttpMessage<List<Project>> str1 = session.Api.Get<HttpMessage<List<Project>>>("/project");
+            HttpMessage<List<Project>> str = session.Api.Post <HttpMessage<List<Project>>, Project>("/project/create", new Project() { Name = "ТестовыйПроект", Description = "Description" });
             //string str = session.Api.Post<string, Project>("/project/create", new Project() { Name = "ТестовыйПроект" });
 
             //str = session.Api.Get<string>("/project");
