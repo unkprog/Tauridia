@@ -5,6 +5,7 @@ using Tauridia.Core.Managers;
 using Tauridia.Core.Models.Project;
 using Tauridia.Web.Core;
 using Microsoft.AspNetCore.Authorization;
+using System.Net.Http;
 
 namespace Tauridia.Web.Server.Controllers.Api
 {
@@ -16,23 +17,17 @@ namespace Tauridia.Web.Server.Controllers.Api
         }
 
         [HttpGet]
-        public string Get()
+        public IEnumerable<Project> Get()
         {
-            return "OK"; // new ProjectManager().ListProjects();
+            return new ProjectManager().ListProjects();
         }
-        //[HttpGet]
-        //public IEnumerable<Project> Get()
-        //{
-        //    return "OK"; // new ProjectManager().ListProjects();
-        //}
-
 
         [HttpPost]
         [Route("create")]
-        public Project Create([FromBody] Project project)
+        public IEnumerable<Project> Create([FromBody] Project project)
         {
-           // new ProjectManager().Save(project);
-            return project;
+            new ProjectManager().Save(project);
+            return Get();
         }
     }
 }

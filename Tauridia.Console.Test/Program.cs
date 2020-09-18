@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -80,8 +81,8 @@ namespace Tauridia.Console.Test
             session.InitApi();
             session.Connect();
             //session.Api.UseCredentials("usr5282797", "4dc3qnfA", "KROST");
-            string str1 = session.Api.Get<string>("/project");
-            string str = session.Api.Post<string, Project>("/project/create", new Project() { Name = "ТестовыйПроект", Description = "Description" });
+            List<Project> str1 = session.Api.Get<List<Project>>("/project");
+            List<Project> str = session.Api.Post<List<Project>, Project>("/project/create", new Project() { Name = "ТестовыйПроект", Description = "Description" });
             //string str = session.Api.Post<string, Project>("/project/create", new Project() { Name = "ТестовыйПроект" });
 
             //str = session.Api.Get<string>("/project");
