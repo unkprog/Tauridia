@@ -3,6 +3,7 @@ using System.Net.Http;
 using Tauridia.App.Core.Net.Api;
 using Tauridia.App.Views;
 using Tauridia.Core;
+using Tauridia.Core.Exceptions;
 using Tauridia.Core.Models.Connection;
 
 namespace Tauridia.App
@@ -28,9 +29,9 @@ namespace Tauridia.App
             }
         }
 
-        private void Api_OnException(object sender, Exception e)
+        private void Api_OnException(object sender, HttpException e)
         {
-            if (e.HResult == -2146233088)
+            if (e.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 MainWindowViewModel.This.CurrentContent = new LoginViewModel();
             else
                 MainWindowViewModel.This.NotifyError(e);

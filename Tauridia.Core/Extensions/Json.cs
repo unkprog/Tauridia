@@ -3,6 +3,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Tauridia.Core.Exceptions;
 using Utf8Json;
 
 namespace Tauridia.Core.Extensions
@@ -31,7 +32,7 @@ namespace Tauridia.Core.Extensions
             }
         }
 
-        internal static async Task<TResult> HttpClientInvoke<TResult>(string server, HttpClientHandler handler, Action<Exception> onError, Func<HttpClient, Task<HttpResponseMessage>> func)
+        internal static async Task<TResult> HttpClientInvoke<TResult>(string server, HttpClientHandler handler, Action<HttpException> onError, Func<HttpClient, Task<HttpResponseMessage>> func)
         {
             TResult result = default(TResult);
             HttpResponseMessage response = null;
@@ -52,15 +53,14 @@ namespace Tauridia.Core.Extensions
             }
             catch (Exception ex)
             {
-                onError?.Invoke(ex);
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                onError?.Invoke(new HttpException(response.StatusCode, "Api -> " + response.RequestMessage.RequestUri + Environment.NewLine + ex.Message));
             }
 
             return result;
         }
 
 
-        public static TResult Get<TResult>(string server, string url, HttpClientHandler handler = null, Action<Exception> onError = null)
+        public static TResult Get<TResult>(string server, string url, HttpClientHandler handler = null, Action<HttpException> onError = null)
         {
             Task<TResult> taskResult = Task.Run(async () =>
             {
@@ -70,7 +70,7 @@ namespace Tauridia.Core.Extensions
             return taskResult.Result;
         }
 
-        public static async Task<TResult> GetAsync<TResult>(string server, string url, HttpClientHandler handler = null, Action<Exception> onError = null)
+        public static async Task<TResult> GetAsync<TResult>(string server, string url, HttpClientHandler handler = null, Action<HttpException> onError = null)
         {
             return await HttpClientInvoke<TResult>(server, handler, onError, (client) =>
             {
@@ -78,7 +78,7 @@ namespace Tauridia.Core.Extensions
             });
         }
 
-        public static TResult Post<TResult, TParam>(string server, string url, TParam data, HttpClientHandler handler = null, Action<Exception> onError = null)
+        public static TResult Post<TResult, TParam>(string server, string url, TParam data, HttpClientHandler handler = null, Action<HttpException> onError = null)
         {
             Task<TResult> taskResult = Task.Run(async () =>
             {
@@ -88,7 +88,7 @@ namespace Tauridia.Core.Extensions
             return taskResult.Result;
         }
 
-        public static async Task<TResult> PostAsync<TResult, TParam>(string server, string url, TParam data, HttpClientHandler handler = null, Action<Exception> onError = null)
+        public static async Task<TResult> PostAsync<TResult, TParam>(string server, string url, TParam data, HttpClientHandler handler = null, Action<HttpException> onError = null)
         {
             return await HttpClientInvoke<TResult>(server, handler, onError, (client) =>
             {

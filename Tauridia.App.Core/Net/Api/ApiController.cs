@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Http;
 using Tauridia.Core;
+using Tauridia.Core.Exceptions;
 using Tauridia.Core.Extensions;
 
 namespace Tauridia.App.Core.Net.Api
@@ -18,7 +19,7 @@ namespace Tauridia.App.Core.Net.Api
         private string url, controller;
         //private HttpClientHandler handler = null;
 
-        public event EventHandler<Exception> OnException;
+        public event EventHandler<HttpException> OnException;
 
         public void EmptyCredentials()
         {
@@ -52,7 +53,7 @@ namespace Tauridia.App.Core.Net.Api
             return Json.Post<T, P>(url, string.Concat(this.controller, command), data, getHandler?.Invoke(), OnError);
         }
 
-        private void OnError(Exception exception)
+        private void OnError(HttpException exception)
         {
             OnException?.Invoke(this, exception);
         }

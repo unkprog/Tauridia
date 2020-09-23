@@ -3,6 +3,7 @@ using Avalonia;
 //using Avalonia.Controls.ApplicationLifetimes;
 //using Avalonia.Logging.Serilog;
 using Avalonia.ReactiveUI;
+using Tauridia.App.Views;
 
 namespace Tauridia.App
 {
