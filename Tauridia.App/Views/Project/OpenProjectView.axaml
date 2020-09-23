@@ -1,0 +1,25 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Tauridia.App.ViewModels.WelcomeSreen;assembly=Tauridia.App"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:v="clr-namespace:Tauridia.App.Views;assembly=Tauridia.App"
+             xmlns:ctrl="clr-namespace:Tauridia.App.Controls;assembly=Tauridia.App.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Tauridia.App.Views.OpenProjectView">
+  <Grid ColumnDefinitions="*" RowDefinitions="50, *">
+
+    
+    <ctrl:TitledControl Grid.RowSpan="2" Grid.Column="1" Width="600" Height="400"
+                        IsVisibleOk="True" IsVisibleCancel="True"
+                        CommandOk="{Binding OpenProjectCommand}" CommandCancel="{Binding CloseCommand}">
+      <ctrl:TitledControl.Header>
+            <TextBlock Classes="headerLabel" Text="Открыть проект"/>
+      </ctrl:TitledControl.Header>
+      <ctrl:TitledControl.Content>
+        <ListBox Items="{Binding ListProjects, Mode=OneWay}" BorderThickness="0" ItemTemplate="{StaticResource ProjectItemTemplate}" SelectedItem="{Binding SelectedProject, Mode=TwoWay}"/>
+        </ctrl:TitledControl.Content>
+    </ctrl:TitledControl>
+  
+</Grid>
+</UserControl>

@@ -4,6 +4,7 @@ using System.Net.Http;
 using Tauridia.Core;
 using Tauridia.Core.Exceptions;
 using Tauridia.Core.Extensions;
+using Tauridia.Core.Http;
 
 namespace Tauridia.App.Core.Net.Api
 {
@@ -17,8 +18,7 @@ namespace Tauridia.App.Core.Net.Api
         }
 
         private string url, controller;
-        //private HttpClientHandler handler = null;
-
+      
         public event EventHandler<HttpException> OnException;
 
         public void EmptyCredentials()
@@ -48,9 +48,27 @@ namespace Tauridia.App.Core.Net.Api
             return Json.Get<T>(url, string.Concat(this.controller, command), getHandler?.Invoke(), OnError);
         }
 
+        public void HttpMessageGet<T>(string command, Action<T> successAction)
+        {
+            HttpMessage<T> result = Json.Get<HttpMessage<T>>(url, string.Concat(this.controller, command), getHandler?.Invoke(), OnError);
+            if (result.Result == -1)
+                OnError(new HttpException(result.Error));
+            else
+                successAction?.Invoke(result.Data);
+        }
+
         public T Post<T, P>(string command, P data)
         {
             return Json.Post<T, P>(url, string.Concat(this.controller, command), data, getHandler?.Invoke(), OnError);
+        }
+
+        public void HttpMessagePost<T, P>(string command, P data, Action<T> successAction)
+        {
+            HttpMessage<T> result = Json.Post<HttpMessage<T>, P>(url, string.Concat(this.controller, command), data, getHandler?.Invoke(), OnError);
+            if(result.Result == -1)
+                OnError(new HttpException(result.Error));
+            else 
+                successAction?.Invoke(result.Data);
         }
 
         private void OnError(HttpException exception)

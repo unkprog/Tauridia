@@ -31,13 +31,13 @@ namespace Tauridia.App.Views.Settings
         public void Save()
         {
             Json.Write(GetFileNameSettings(), this);
-            MainWindowViewModel.This.CurrentContent = new ConnectViewModel();
+            MainWindowViewModel.This.CurrentContent = new OpenProjectViewModel();
         }
 
         public void Cancel()
         {
             Load();
-            MainWindowViewModel.This.CurrentContent = new ConnectViewModel();
+            MainWindowViewModel.This.CurrentContent = new OpenProjectViewModel();
         }
 
         private string CheckDirectorySettings()

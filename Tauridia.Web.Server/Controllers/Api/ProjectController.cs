@@ -30,14 +30,25 @@ namespace Tauridia.Web.Server.Controllers.Api
 
         [HttpPost]
         [Route("create")]
-        public HttpMessage<IEnumerable<Project>> Create([FromBody] Project project)
+        public HttpMessage<Project> Create([FromBody] Project project)
+        {
+            return this.TryCatch(() =>
+            {
+                new ProjectManager().Create(project);
+                return project;
+            });
+        }
+
+        [HttpPost]
+        [Route("save")]
+        public HttpMessage<Project> Save([FromBody] Project project)
         {
             return this.TryCatch(() =>
             {
                 new ProjectManager().Save(project);
-                return Get().Data;
+                return project;
             });
-           
         }
+
     }
 }

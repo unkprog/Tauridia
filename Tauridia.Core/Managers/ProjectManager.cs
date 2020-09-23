@@ -58,6 +58,17 @@ namespace Tauridia.Core.Managers
             return Json.Read<Project>(GetFileNameProject(name));
         }
 
+        public void Create(Project prj)
+        {
+            List<Project> projects = ListProjects();
+            foreach(var p in  projects)
+            {
+                if (p.Name == prj.Name)
+                    throw new Exception("Проект с таким именем уже существует.");
+            }
+            Save(prj);
+        }
+
         public void Save(Project prj)
         {
             Json.Write(GetFileNameProject(prj.Name), prj);

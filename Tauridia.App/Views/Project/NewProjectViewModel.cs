@@ -1,4 +1,5 @@
-﻿using Tauridia.Core.Models;
+﻿using Tauridia.Core.Http;
+using Tauridia.Core.Models;
 using Tauridia.Core.Models.Project;
 
 namespace Tauridia.App.Views
@@ -7,12 +8,7 @@ namespace Tauridia.App.Views
     {
         public void CreateProject()
         {
-            string result = App.Session.Api.Post<string, Project>("/project/save", Project);
-            if(result == "Ok")
-            {
-                MainWindowViewModel.This.CurrentContent = new ProjectViewModel();
-            }
-
+            App.Session.Api.HttpMessagePost<Project, Project>("/project/create", Project, (result) => MainWindowViewModel.This.CurrentContent = new ProjectViewModel(result));
         }
     }
 }

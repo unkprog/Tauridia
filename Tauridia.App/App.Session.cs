@@ -49,7 +49,7 @@ namespace Tauridia.App
 
         public void Disconnect()
         {
-            MainWindowViewModel.This.CurrentContent = new ConnectViewModel();
+            MainWindowViewModel.This.CurrentContent = new OpenProjectViewModel();
         }
 
 #endregion

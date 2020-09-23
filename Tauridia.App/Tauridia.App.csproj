@@ -35,6 +35,9 @@
     <Compile Update="Views\MainWindowViewModel.Commands.cs">
       <DependentUpon>MainWindow.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Project\OpenProjectView.axaml.cs">
+      <DependentUpon>OpenProjectView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Settings\ProgramSettingsView.axaml.cs">
       <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
     </Compile>
@@ -112,6 +115,15 @@
     </Compile>
     <Compile Update="Views\Project\NewProjectViewModel.Commands.cs">
       <DependentUpon>NewProjectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Project\OpenProjectViewModel.cs">
+      <DependentUpon>OpenProjectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Project\OpenProjectViewModel.Properties.cs">
+      <DependentUpon>OpenProjectView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Project\OpenProjectViewModel.Commands.cs">
+      <DependentUpon>OpenProjectView.axaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Project\ProjectViewModel.cs">
       <DependentUpon>ProjectView.axaml</DependentUpon>

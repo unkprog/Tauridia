@@ -9,7 +9,7 @@ namespace Tauridia.App.Views
         [IgnoreDataMember]
         public ReactiveCommand<Unit, Unit> CancelCommand => ReactiveCommand.Create(() => { MainWindowViewModel.This.CurrentContent = new ConnectViewModel(); });
         [IgnoreDataMember]
-        public ReactiveCommand<Unit, Unit> OpenProjectCommand => ReactiveCommand.Create(() => { });
+        public ReactiveCommand<Unit, Unit> OpenProjectCommand => ReactiveCommand.Create(() => { MainWindowViewModel.This.CurrentContent = new OpenProjectViewModel(); });
         [IgnoreDataMember]
         public ReactiveCommand<Unit, Unit> CreateProjectCommand => ReactiveCommand.Create(() => { MainWindowViewModel.This.CurrentContent = new NewProjectViewModel(); });
         [IgnoreDataMember]
