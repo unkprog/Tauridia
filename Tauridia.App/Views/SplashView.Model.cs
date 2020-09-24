@@ -10,7 +10,5 @@ namespace Tauridia.App.Views
         {
 
         }
-
-        //public ReactiveCommand<Unit, Unit> SettingsCommand => ReactiveCommand.Create(() =>  { MainWindowViewModel.This.CurrentContent = new Settings.SettingsViewModel(); });
     }
 }

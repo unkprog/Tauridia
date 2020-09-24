@@ -52,7 +52,7 @@ namespace Tauridia.App.Core.Net.Api
         {
             HttpMessage<T> result = Json.Get<HttpMessage<T>>(url, string.Concat(this.controller, command), getHandler?.Invoke(), OnError);
             if (result.Result == -1)
-                OnError(new HttpException(result.Error));
+                OnError(new HttpException(HttpStatusCode.Continue, result.Error));
             else
                 successAction?.Invoke(result.Data);
         }
@@ -66,7 +66,7 @@ namespace Tauridia.App.Core.Net.Api
         {
             HttpMessage<T> result = Json.Post<HttpMessage<T>, P>(url, string.Concat(this.controller, command), data, getHandler?.Invoke(), OnError);
             if(result.Result == -1)
-                OnError(new HttpException(result.Error));
+                OnError(new HttpException(HttpStatusCode.Continue, result.Error));
             else 
                 successAction?.Invoke(result.Data);
         }
