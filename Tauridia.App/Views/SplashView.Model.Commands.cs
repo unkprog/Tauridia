@@ -4,7 +4,7 @@ using Tauridia.Core.Models;
 
 namespace Tauridia.App.Views
 {
-    public class SplashViewModel : ViewModelBase
+    public partial class SplashViewModel : ViewModelBase
     {
         public SplashViewModel()
         {

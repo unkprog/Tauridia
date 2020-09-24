@@ -22,117 +22,57 @@
     <AvaloniaResource Include="Assets\Icons\**" />
     <AvaloniaResource Include="Assets\Styles\AppStyles.xaml" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Update="App.Properties.cs">
-      <DependentUpon>App.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\MainWindowViewModel.cs">
-      <DependentUpon>MainWindow.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\MainWindowViewModel.Properties.cs">
-      <DependentUpon>MainWindow.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\MainWindowViewModel.Commands.cs">
-      <DependentUpon>MainWindow.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\OpenProjectView.axaml.cs">
-      <DependentUpon>OpenProjectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\ProgramSettingsView.axaml.cs">
-      <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\ProgramSettingsViewmodel.cs">
-      <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\ProgramSettingsViewmodel.Properties.cs">
-      <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\ProgramSettingsViewmodel.Commands.cs">
-      <DependentUpon>ProgramSettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\SplashViewModel.cs">
-      <DependentUpon>SplashView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\ConnectView.axaml.cs">
-      <DependentUpon>ConnectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\ConnectViewModel.cs">
-      <DependentUpon>ConnectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\ConnectViewModel.Commands.cs">
-      <DependentUpon>ConnectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\ConnectViewModel.Properties.cs">
-      <DependentUpon>ConnectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\SettingsViewModel.cs">
-      <DependentUpon>SettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\SettingsViewModel.Commands.cs">
-      <DependentUpon>SettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\SettingsViewModel.Properties.cs">
-      <DependentUpon>SettingsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\ConnectionsServersViewModel.cs">
-      <DependentUpon>ConnectionsServersView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\ConnectionsServersViewModel.Properties.cs">
-      <DependentUpon>ConnectionsServersView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Settings\ConnectionsServersViewModel.Commands.cs">
-      <DependentUpon>ConnectionsServersView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\AboutViewModel.cs">
-      <DependentUpon>AboutView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\AboutViewModel.Commands.cs">
-      <DependentUpon>AboutView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\LoginViewModel.cs">
-      <DependentUpon>LoginView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\LoginViewModel.Properties.cs">
-      <DependentUpon>LoginView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\LoginViewModel.Commands.cs">
-      <DependentUpon>LoginView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\StartViewModel.cs">
-      <DependentUpon>StartView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\StartViewModel.Properties.cs">
-      <DependentUpon>StartView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\StartViewModel.Commands.cs">
-      <DependentUpon>StartView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\NewProjectViewModel.cs">
-      <DependentUpon>NewProjectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\NewProjectViewModel.Properties.cs">
-      <DependentUpon>NewProjectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\NewProjectViewModel.Commands.cs">
-      <DependentUpon>NewProjectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\OpenProjectViewModel.cs">
-      <DependentUpon>OpenProjectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\OpenProjectViewModel.Properties.cs">
-      <DependentUpon>OpenProjectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\OpenProjectViewModel.Commands.cs">
-      <DependentUpon>OpenProjectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\ProjectViewModel.cs">
-      <DependentUpon>ProjectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\ProjectViewModel.Properties.cs">
-      <DependentUpon>ProjectView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Project\ProjectViewModel.Commands.cs">
-      <DependentUpon>ProjectView.axaml</DependentUpon>
-    </Compile>
+    <Compile Update="App.Properties.cs" DependentUpon="App.axaml" />
+    <Compile Update="App.Session.cs" DependentUpon="App.axaml" />
+
+    <Compile Update="Views\MainWindowView.Model.cs" DependentUpon="MainWindow.axaml" />
+    <Compile Update="Views\MainWindowView.Model.Properties.cs" DependentUpon="MainWindow.axaml" />
+    <Compile Update="Views\MainWindowView.Model.Commands.cs" DependentUpon="MainWindow.axaml" />
+    
+    <Compile Update="Views\AboutView.Model.cs" DependentUpon="AboutView.axaml" />
+    <Compile Update="Views\AboutView.Model.Commands.cs" DependentUpon="AboutView.axaml" />
+    
+    <Compile Update="Views\SplashView.Model.cs" DependentUpon="SplashView.axaml" />
+    <Compile Update="Views\SplashView.Model.Properties.cs" DependentUpon="SplashView.axaml" />
+    <Compile Update="Views\SplashView.Model.Commands.cs" DependentUpon="SplashView.axaml" />
+    
+    <Compile Update="Views\ConnectView.Model.cs" DependentUpon="ConnectView.axaml" />
+    <Compile Update="Views\ConnectView.Model.Commands.cs" DependentUpon="ConnectView.axaml" />
+    <Compile Update="Views\ConnectView.Model.Properties.cs" DependentUpon="ConnectView.axaml" />
+
+    <Compile Update="Views\LoginView.Model.cs" DependentUpon="LoginView.axaml" />
+    <Compile Update="Views\LoginView.Model.Properties.cs" DependentUpon="LoginView.axaml" />
+    <Compile Update="Views\LoginView.Model.Commands.cs" DependentUpon="LoginView.axaml" />
+    
+    <Compile Update="Views\StartView.Model.cs" DependentUpon="StartView.axaml" />
+    <Compile Update="Views\StartView.Model.Properties.cs" DependentUpon="StartView.axaml" />
+    <Compile Update="Views\StartView.Model.Commands.cs" DependentUpon="StartView.axaml" />
+
+    <Compile Update="Views\Settings\ProgramSettingsView.Model.cs" DependentUpon="ProgramSettingsView.axaml" />
+    <Compile Update="Views\Settings\ProgramSettingsView.Model.Properties.cs" DependentUpon="ProgramSettingsView.axaml" />
+    <Compile Update="Views\Settings\ProgramSettingsView.Model.Commands.cs" DependentUpon="ProgramSettingsView.axaml" />
+
+    <Compile Update="Views\Settings\SettingsView.Model.cs" DependentUpon="SettingsView.axaml" />
+    <Compile Update="Views\Settings\SettingsView.Model.Commands.cs" DependentUpon="SettingsView.axaml" />
+    <Compile Update="Views\Settings\SettingsView.Model.Properties.cs" DependentUpon="SettingsView.axaml" />
+
+    <Compile Update="Views\Settings\ConnectionsServersView.Model.cs" DependentUpon="ConnectionsServersView.axaml" />
+    <Compile Update="Views\Settings\ConnectionsServersView.Model.Properties.cs" DependentUpon="ConnectionsServersView.axaml" />
+    <Compile Update="Views\Settings\ConnectionsServersView.Model.Commands.cs" DependentUpon="ConnectionsServersView.axaml" />
+    
+    <Compile Update="Views\Project\OpenProjectView.Model.cs" DependentUpon="OpenProjectView.axaml" />
+    <Compile Update="Views\Project\OpenProjectView.Model.Properties.cs" DependentUpon="OpenProjectView.axaml" />
+    <Compile Update="Views\Project\OpenProjectView.Model.Commands.cs" DependentUpon="OpenProjectView.axaml" />
+
+    <Compile Update="Views\Project\ProjectView.Model.cs" DependentUpon="ProjectView.axaml" />
+    <Compile Update="Views\Project\ProjectView.Model.Properties.cs" DependentUpon="ProjectView.axaml" />
+    <Compile Update="Views\Project\ProjectView.Model.Commands.cs" DependentUpon="ProjectView.axaml" />
+
+    <Compile Update="Views\Project\NewProjectView.Model.cs" DependentUpon="NewProjectView.axaml" />
+    <Compile Update="Views\Project\NewProjectView.Model.Properties.cs" DependentUpon="NewProjectView.axaml" />
+    <Compile Update="Views\Project\NewProjectView.Model.Commands.cs" DependentUpon="NewProjectView.axaml" />
   </ItemGroup>
+
 </Project>
