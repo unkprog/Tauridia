@@ -12,7 +12,7 @@
     
     <ctrl:TitledControl Grid.RowSpan="2" Grid.Column="1" Width="600" Height="400"
                         IsVisibleOk="True" IsVisibleCancel="True"
-                        CommandOk="{Binding OpenProjectCommand}" CommandCancel="{Binding CloseCommand}">
+                        CommandOk="{Binding OpenProjectCommand}" CommandCancel="{Binding CancelCommand}">
       <ctrl:TitledControl.Header>
             <TextBlock Classes="headerLabel" Text="Открыть проект"/>
       </ctrl:TitledControl.Header>

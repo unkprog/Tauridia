@@ -6,7 +6,7 @@ namespace Tauridia.App.Views
 {
     public partial class OpenProjectViewModel
     {
-        public ReactiveCommand<Unit, Unit> OpenProjetCommand => ReactiveCommand.Create(() =>
+        public ReactiveCommand<Unit, Unit> OpenProjectCommand => ReactiveCommand.Create(() =>
         {
             if (SelectedProject == null)
             {
