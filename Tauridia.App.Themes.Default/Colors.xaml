@@ -4,8 +4,10 @@
 
   <Style.Resources>
     <Color x:Key="ThemeColorTitledControlHeader">#FF1E9DBF</Color>
+    <Color x:Key="ThemeColorBorder">Gray</Color>
 
-    <SolidColorBrush x:Key="ThemeBackgroundTitledControlHeader" Color="{DynamicResource ThemeColorTitledControlHeader}"></SolidColorBrush>
+    <SolidColorBrush x:Key="ThemeBrushTitledControlHeader" Color="{DynamicResource ThemeColorTitledControlHeader}"></SolidColorBrush>
+    <SolidColorBrush x:Key="ThemeBrushBorder" Color="{DynamicResource ThemeColorBorder}"></SolidColorBrush>
 
   </Style.Resources>
 </Style>

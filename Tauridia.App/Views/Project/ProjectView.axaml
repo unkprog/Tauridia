@@ -4,5 +4,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tauridia.App.Views.ProjectView">
+  <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,*,Auto">
 
+    <StackPanel Orientation="Horizontal">
+      <Button Height="25" Width="25" Margin="1"/>
+      <Button Height="25" Width="25" Margin="0 1 1 1"/>
+      <Button Height="25" Width="25" Margin="0 1 1 1"/>
+      <Button Height="25" Width="25" Margin="0 1 1 1"/>
+    </StackPanel>
+    <Border Width="200" Grid.Row="1" Grid.Column="1" BorderThickness="1 1 0 0" BorderBrush="{DynamicResource ThemeBrushBorder}">
+      <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        
+      </ScrollViewer>
+    </Border>
+
+    <Border Grid.Row="1" BorderThickness="1 1 0 0"  BorderBrush="{DynamicResource ThemeBrushBorder}">
+      <!--<TabControl>
+        <TabItem Header="1">
+          Content 1
+        </TabItem>
+        <TabItem Header="2">
+          Content 2
+        </TabItem>
+        <TabItem Header="3">
+          Content 3
+        </TabItem>
+      </TabControl>-->
+      <TabStrip Background="Red" >
+        <TabStripItem Background="Aqua">Item 1</TabStripItem>
+        <TabStripItem>Item 2</TabStripItem>
+        <TabStripItem IsEnabled="False">Disabled</TabStripItem>
+      </TabStrip>
+    </Border>
+
+    <Border Height="20" Grid.Row="2" BorderThickness="1 1 0 1" BorderBrush="{DynamicResource ThemeBrushBorder}">
+      
+    </Border>
+    <Border Height="20" Grid.Row="2" Grid.Column="1" BorderThickness="0 1 1 1" BorderBrush="{DynamicResource ThemeBrushBorder}">
+      <ProgressBar IsIndeterminate="True" Margin="1" />
+    </Border>
+  </Grid>
 </UserControl>
